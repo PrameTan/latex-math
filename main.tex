@@ -313,55 +313,8 @@
 				1 & 3 & 2
 				\end{pmatrix}.
 			\end{equation*}
-			Therefore $S_3$ is not abelian. More generally $S_n$ is not abelian for $n \geq 3$. We will show the sufficient condition that makes two permutations commute.
-			
-			\begin{definition}
-				Any permutations $\alpha, \beta$ are said to be \textit{disjoint} if, for every $k$ in $\Set{1, 2, \ldots, n}$, either $\alpha(k) = k$ or $\beta(k) = k$.
-			\end{definition}
-			\begin{theorem}
-				Two permutations commute if they are disjoint.
-			\end{theorem}
-			\begin{proof}
-				Let the two permutations be $\alpha$ and $\beta$. For any $k \in \Set{1, \ldots, n}$, suppose that $\alpha$ fixes k, the case for $\beta$ can be argued similarly. 
-				
-				Let $\beta(k) = k'$. Then $\alpha\beta (k) = \alpha(k')$ and $\beta\alpha(k) = \beta(k) = k'$. We shall prove that indeed $\alpha(k') = k$.
-				
-				If $\beta(k') \neq k'$ then we are done by the premise. So suppose $\beta(k') = k'$, but then $\beta(k') = k' = \beta(k)$. This implies $k = k'$ and so $\alpha(k') = \alpha(k) = k'$ as required.
-			\end{proof}
-			We shall further simplify the notation, by introducing fixed points.
-			\begin{definition}
-				We call that $k$ is a \textit{fixed point} \index{Fixed point} of $\alpha$, and that $\alpha$ fixes $k$, if $\alpha(k) = k$.
-			\end{definition}
-			 And so, by convention, we shall left out any integers fixed by $\alpha$. For example, the permutation
-			 \begin{equation*}
-				 \alpha = \begin{pmatrix}
-					 1 & 3 \\
-					 3 & 1
-				 \end{pmatrix}
-			 \end{equation*}
-			 interchanges 1 and 3, and fixes 2. This notation is still too cumbersome for large $n$, this drives us to find a new notation. Let us start by noticing that, if we repeatedly apply any permutation $\alpha$, any elements in $\Set{1, 2, \ldots, n}$ must eventually return. For example, let
-			 \begin{equation*}
-			 \alpha = \begin{pmatrix}
-				 1 & 2 & 3 & 4 & 5\\
-				 5 & 3 & 4 & 2 & 1
-			 \end{pmatrix},
-			 \end{equation*}
-			 then $\alpha^2(1) = 1, \alpha^3(2) = 1, \alpha^3(3) = 3, \alpha^3(4) = 4$ and $\alpha^2(5) = 5$. This is easily proven using the pigeonhole principle. Notice that 1 and 5 \textit{form} a cycle between each other, as $\alpha$ sends 1 to 5 and also send 5 to 1; this is also the case for 2, 3, 4. The permutation $\alpha$ sends 2 to 3, 3 to 4, and 4 to 2. This is the motivation to define \textit{cycles}.
-			 \begin{definition}
-			 	A \textit{cycle} between $n_1, n_2, \ldots, n_q$ is the permutation
-			 	\begin{equation*}
-				 	\begin{pmatrix}
-					 	n_1 & n_2 & \cdots & n_q \\
-					 	n_2 & n_3 & \cdots & n_1
-				 	\end{pmatrix}.
-			 	\end{equation*}
-			 	It is denoted by $(n_1 n_2 \cdots n_q)$. The cycle is said to be of length $q$.
-			 \end{definition}
-			 The integers $n_1, n_2, \ldots, n_q$ need not be in an increasing order. By inspection, $\alpha = (1 5)(2 3 4) = (2 3 4)(1 5)$. We will show that any permutation can be written in this manner, as the compositions of cycles.
-			 
-			 \begin{theorem}
-			 	A permutation $\alpha$ in the symmetric group $S_n$ can be written as a composition of cycles.
-			 \end{theorem}
+			Therefore $S_3$ is not abelian. More generally $S_n$ is not abelian for $n \geq 3$. We will study permutations in more details later on.
+
 	\subsection{Subgroups and homomorphisms}
 		\begin{definition}
 			A \textit{subgroup} of a group $G$ is a subset of $G$ which itself form a group under the operation taken from $G$.
@@ -580,9 +533,85 @@
 			\subsection{The orthogonal and special orthogonal groups}
 			
 			\subsection{Basis change}
+			
 		\section{Permutations}
 			\subsection{Permutations, Cycles and Transpositions}
-			
+				We have given the definition of permutations before.
+				\begin{definition}
+					Any permutations $\alpha, \beta$ are said to be \textit{disjoint} if, for every $k$ in $\Set{1, 2, \ldots, n}$, either $\alpha(k) = k$ or $\beta(k) = k$.
+				\end{definition}
+				\begin{theorem}
+					Two permutations commute if they are disjoint.
+				\end{theorem}
+				\begin{proof}
+					Let the two permutations be $\alpha$ and $\beta$. For any $k \in \Set{1, \ldots, n}$, suppose that $\alpha$ fixes k, the case for $\beta$ can be argued similarly. 
+					
+					Let $\beta(k) = k'$. Then $\alpha\beta (k) = \alpha(k')$ and $\beta\alpha(k) = \beta(k) = k'$. We shall prove that indeed $\alpha(k') = k$.
+					
+					If $\beta(k') \neq k'$ then we are done by the premise. So suppose $\beta(k') = k'$, but then $\beta(k') = k' = \beta(k)$. This implies $k = k'$ and so $\alpha(k') = \alpha(k) = k'$ as required.
+				\end{proof}
+				We shall further simplify the notation, by introducing fixed points.
+				\begin{definition}
+					We call that $k$ is a \textit{fixed point} \index{Fixed point} of $\alpha$, and that $\alpha$ fixes $k$, if $\alpha(k) = k$.
+				\end{definition}
+				And so, by convention, we shall left out any integers fixed by $\alpha$. For example, the permutation
+				\begin{equation*}
+				\alpha = \begin{pmatrix}
+				1 & 3 \\
+				3 & 1
+				\end{pmatrix}
+				\end{equation*}
+				interchanges 1 and 3, and fixes 2. This notation is still too cumbersome for large $n$, this drives us to find a new notation. Let us start by noticing that, if we repeatedly apply any permutation $\alpha$, any elements in $\Set{1, 2, \ldots, n}$ must eventually return. For example, let
+				\begin{equation*}
+				\alpha = \begin{pmatrix}
+				1 & 2 & 3 & 4 & 5\\
+				5 & 3 & 4 & 2 & 1
+				\end{pmatrix},
+				\end{equation*}
+				then $\alpha^2(1) = 1, \alpha^3(2) = 1, \alpha^3(3) = 3, \alpha^3(4) = 4$ and $\alpha^2(5) = 5$. This is easily proven using the pigeonhole principle. Notice that 1 and 5 form a \textit{cycle} between each other, as $\alpha$ sends 1 to 5 and also send 5 to 1; this is also the case for 2, 3, 4. The permutation $\alpha$ sends 2 to 3, 3 to 4, and 4 to 2. This is the motivation to define \textit{cycles}.
+				\begin{definition}
+					A \textit{cycle} between $n_1, n_2, \ldots, n_q$ is the permutation
+					\begin{equation*}
+					\begin{pmatrix}
+					n_1 & n_2 & \cdots & n_q \\
+					n_2 & n_3 & \cdots & n_1
+					\end{pmatrix}.
+					\end{equation*}
+					It is denoted by $(n_1\,n_2\,\cdots\,n_q)$. The cycle is said to be of length $q$.
+				\end{definition}
+				The integers $n_1, n_2, \ldots, n_q$ need not be in an increasing order. By inspection, $\alpha = (1\,5)(2\, 3\,4) = (2\,3\,4)(1\,5)$. We will show that any permutation can be written in this manner, as the compositions of cycles.
+				
+				\begin{theorem}
+					Any permutation $\alpha$ in the symmetric group $S_n$ can be written as a composition of disjoint cycles.
+				\end{theorem}
+				\begin{proof}
+					This will employ the similar strategy used above. For any integer $k \in \Set{1, \ldots, n}$, we apply $\alpha$ repeatedly, and so we have the sequence $k, \alpha (k), \alpha^2 (k), \ldots$, and so some elements of this sequence must coincide. Let the two such elements be $\alpha^p(k) = \alpha^q (k)$, with $p < q$. Thus $\alpha^{q - p}(k) = k$. Now there exists a smallest positive number $u$ such that $\alpha^u (k) = k$.
+					
+					The sequence  $k, \alpha (k), \alpha^2 (k), \ldots, \alpha^{u-1}(k)$ must be distinct. Construct the cycle 
+					\begin{equation*}
+					\gamma_k = (k, \alpha k, \alpha^2 (k), \ldots, \alpha^{u-1}(k)).
+					\end{equation*} 
+					Now, two cycles are either disjoint or identical. For if $y = \alpha^{d} (x)$ for some integer $d$, then $\gamma_x = \gamma_y$, and we say that $x$ and $y$ belong to the same cycle. Continue doing this for all elements of $\Set{1, \ldots, n}$, we will have a collection of cycles $\Set{\gamma_{k_1}, \gamma_{k_2}, \ldots, \gamma_{k_m}}$, all of them are pairwise disjoint.
+					
+					Now consider the composition $\gamma_{k_1}\gamma_{k_2}\cdots\gamma_{k_m}$. For any $x \in \Set{1, \ldots, n}$, then $\gamma_{k_d}(x) = \alpha(x)$ if $x$ and $k_d$ belong to the same cycle; else $\gamma_{k_d}(x) = x$. And so $\alpha = \gamma_{k_1}\gamma_{k_2}\cdots\gamma_{k_m}$.
+				\end{proof}
+				The proof above use the idea of constructing the sequence $k, \alpha k, \alpha^2 (k), \ldots \alpha^{u-1} (k)$ of elements of a group. This will be studied further in the notion of \textbf{orbits}. This decomposition is also unique up to the order of $y_{k_i}$, and it is called the \textit{standard representation} of $\alpha$.
+				
+				Let's try to decompose a permutation using the theorem. Consider
+				\begin{equation*}
+				\alpha =
+				\begin{pmatrix}
+				1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+				3 & 5 & 4 & 1 & 8 & 2 & 7 & 6
+				\end{pmatrix}
+				\end{equation*}
+				with $\alpha \in S_{8}$. The cycle formed by 1 is $\gamma_1 = (1 3 4)$. Continuing this, we have the collection $\Set{(1 3 4), (2 5 8 6), (7)}$, and the standard representation of $\alpha$ is $(1\,3\,4)(2\,5\, 8\,6)(7)$
+				
+				Finally, consider a cycle $\alpha$ of length $n$, then $\alpha^n = \iota$. Furthermore, for any positive integer $d$,
+				\begin{equation*}
+				\alpha^d = (\gamma_{k_1}\gamma_{k_2}\cdots\gamma_{k_m})^d = \gamma_{k_1}^d\gamma_{k_2}^d\cdots\gamma_{k_m}^d.
+				\end{equation*}
+				It follows that if $d$ is the least common multiple of $n_{k_1}, n_{k_2}, \ldots, n_{k_m}$, where $n_{k_i}$ is the length of $\gamma_{k_i}$, then $\alpha^d = \iota$. The least common multiple is indeed the smallest positive integer with such property.
 			\subsection{Sign of Permutations}
 			
 			\subsection{Conjugacy in $S_n$ and $A_n$}
