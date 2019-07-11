@@ -37,8 +37,7 @@
 		
 		
 	\subsection{Permutation on a set}
-				In this section we will show that permutations of a non-empty set $X$, in fact, form a group. 
-				We start with the definition of permutations acting on a set, although only for finite sets, before developing the idea further into arbitrary sets.
+	 In this section we will show that permutations of a non-empty set $X$, in fact, form a group, starting with the definition of permutations acting on a set, although only for finite sets, before developing the idea further into arbitrary sets.
 				
 				\begin{definition}
 					A \textit{permutation} $\alpha \colon X \ra X$ is a bijection from $X$ to itself. We say that $\alpha$ acts on the set $X$. The set of all permutations of $X$ is denoted $\mathcal{P}(X)$.				
@@ -182,7 +181,9 @@
 		\begin{theorem}
 			Let $G$ be a group, and $H$ be a non-empty subset of $G$. Then $H$ is a subgroup of $G$ if and only if $xy^{-1} \in H$ whenever $x,y \in H$.
 		\end{theorem}
-		
+		\begin{example}
+			The group $(\ZZ, +)$ is a subgroup of $(\RR, +)$.
+		\end{example}
 			The following property of the class of subsets of $G$ is important.
 		\begin{theorem}
 			Let $G$ be any group, then the intersection of any collection of subgroups of $G$ is itself a subgroup of $G$.
@@ -205,7 +206,6 @@
 			\end{equation*}
 			for all $g, h \in G$.
 		\end{definition}
-			
 			
 	\subsection{Symmetry groups}
 		
@@ -238,7 +238,7 @@
 		\end{example}
 		The following theorem addresses the first problem.
 		\begin{theorem}
-			Suppose that $a, b, c, d, \alpha, \beta, \gamma \text{ and } \delta$ are complex numbers with ${(ad - bc)}{(\alpha\delta - \beta\gamma)}{ \neq 0}$, and such that for at least three distinct values of $z$ in $\CC$, $cz + d \neq 0, \gamma z+ \delta \neq 0$, and
+			Suppose that $a, b, c, d, \alpha, \beta, \gamma \text{ and } \delta$ are complex numbers with ${(ad - bc)}{(\alpha\delta - \beta\gamma)}{\neq 0}$, and such that for at least three distinct values of $z$ in $\CC$, $cz + d \neq 0, \gamma z+ \delta \neq 0$, and
 			\begin{equation*}
 				\frac{az + b}{cz + d} = \frac{\alpha z + \beta}{\gamma z + \delta}.
 			\end{equation*}
@@ -327,7 +327,7 @@
 				
 			\subsection{Lagrange’s theorem}
 			Recall the definition of an \textit{order} of a group, denoted $\abs{G}$. The next theorem shows the connection between the orders of a group and its subgroup.
-				\begin{theorem}[Lagrange's theorem]
+				\begin{theorem}[Lagrange's theorem] \index{Lagrange's theorem}
 					Let $H$ be a subgroup of a finite group $G$. Then $\abs{H}$ divides $G$, and $\abs{G}/\abs{H}$ is the number of distinct left (or right) cosets of $H$ in $G$.
 				\end{theorem}
 				\begin{proof}
@@ -338,13 +338,20 @@
 					It remains to show that $\abs{g_1 H} = \abs{g_2 H} = \cdots = \abs{g_r H} = \abs{H}$. Notice that the map $x \mapsto g_j x$ is a bijection from $H$ to $g_j H$, and so $\abs{g_1 H} = \abs{g_2 H} = \cdots = \abs{g_r H} = \abs{H}$. Therefore $\abs{G} = r\abs{H}$ and the results follow.
 				\end{proof}
 			
-			One of the corollary of Lagrange's theorem is the following result.
+			The corollaries of Lagrange's theorem are as follows.
 			\begin{corollary}
 					Let $g$ be an element of a finite group $G$. Then the order of $g$ divides the order of $G$.
 			\end{corollary}
 			\begin{proof}
 				Let $d$ be the order of $g$. The subgroup $H = \Set{e, g, g^1, \ldots, g^{d-1}}$ is a subgroup of order $d$. By Lagrange's Theorem, $\abs H \mid \abs G$.
 			\end{proof}
+		
+			\begin{corollary}
+				If the order of a group is prime, then it is cyclic.
+			\end{corollary}
+				\begin{proof}
+					Let $G$ be a group with prime order $p$. Suppose $x \in G$, $x \neq e$ and $H = \left\langle x \right\rangle $ be its subgroup. Then $\abs{H} \mid \abs{G}$. But $\abs{G}$ is prime, therefore $\abs{H}$ must either be 1 or $p$. But $H$ contains both $x$ and $e$, therefore $\abs{H} = p$, that is $H = G = \left\langle x \right\rangle $ as claimed.
+				\end{proof}
 			\subsection{Group of small order (up to 8)}
 			
 			\subsection{Quaternions}
@@ -379,7 +386,32 @@
 			
 		\section{Permutations}
 			\subsection{Permutations, Cycles and Transpositions}
-				We have given the definition of permutations before.
+				We have given the definition of permutations before. More importantly, we have show that, generally, $S_n$ is not abelian, but some elements of $S_n$ is abelian.
+				\begin{example}
+					Let $\alpha, \beta \in S_6$, and define
+					\begin{equation*}
+						\alpha =
+						\begin{pmatrix}
+							1 & 2 & 3 & 4 & 5 & 6\\
+							5 & 2 & 1 & 4 & 3 & 6
+						\end{pmatrix},
+						\beta =
+						\begin{pmatrix}
+							1 & 2 & 3 & 4 & 5 & 6\\
+							1 & 6 & 3 & 4 & 5 & 2
+						\end{pmatrix}.
+					\end{equation*}
+					Then
+					\begin{equation*}
+						\alpha\beta = 
+						\begin{pmatrix}
+							1 & 2 & 3 & 4 & 5 & 6\\
+							5 & 6 & 1 & 4 & 3 & 2\\
+						\end{pmatrix}
+						= \beta\alpha.
+					\end{equation*}
+				\end{example}
+				We shall now provide a sufficient condition for two permutations to commute.
 				\begin{definition}
 					Any permutations $\alpha, \beta$ are said to be \textit{disjoint} if, for every $k$ in $\Set{1, 2, \ldots, n}$, either $\alpha(k) = k$ or $\beta(k) = k$.
 				\end{definition}
@@ -393,7 +425,8 @@
 					
 					If $\beta(k') \neq k'$ then we are done by the premise. So suppose $\beta(k') = k'$, but then $\beta(k') = k' = \beta(k)$. This implies $k = k'$ and so $\alpha(k') = \alpha(k) = k'$ as required.
 				\end{proof}
-				We shall further simplify the notation, by introducing fixed points.
+			
+				The conventional notation for permutations is unwieldy, especially for large $n$. We shall further simplify it, by introducing fixed points.
 				\begin{definition}
 					We call that $k$ is a \textit{fixed point} \index{Fixed point} of $\alpha$, and that $\alpha$ fixes $k$, if $\alpha(k) = k$.
 				\end{definition}
@@ -418,9 +451,12 @@
 					\begin{pmatrix}
 					n_1 & n_2 & \cdots & n_q \\
 					n_2 & n_3 & \cdots & n_1
-					\end{pmatrix}.
+					\end{pmatrix}\,.
 					\end{equation*}
 					It is denoted by $(n_1\,n_2\,\cdots\,n_q)$. The cycle is said to be of length $q$.
+				\end{definition}
+				\begin{definition}
+					A \textit{transposition} is a cycle of length 2.
 				\end{definition}
 				The integers $n_1, n_2, \ldots, n_q$ need not be in an increasing order. By inspection, $\alpha = (1\,5)(2\, 3\,4) = (2\,3\,4)(1\,5)$. We will show that any permutation can be written in this manner, as the compositions of cycles.
 				
@@ -432,13 +468,13 @@
 					
 					The sequence  $k, \alpha (k), \alpha^2 (k), \ldots, \alpha^{u-1}(k)$ must be distinct. Construct the cycle 
 					\begin{equation*}
-					\gamma_k = (k, \alpha k, \alpha^2 (k), \ldots, \alpha^{u-1}(k)).
+					\gamma_k = (k \:\, \alpha (k) \: \alpha^2 (k) \: \cdots \: \alpha^{u-1}(k)).
 					\end{equation*} 
 					Now, two cycles are either disjoint or identical. For if $y = \alpha^{d} (x)$ for some integer $d$, then $\gamma_x = \gamma_y$, and we say that $x$ and $y$ belong to the same cycle. Continue doing this for all elements of $\Set{1, \ldots, n}$, we will have a collection of cycles $\Set{\gamma_{k_1}, \gamma_{k_2}, \ldots, \gamma_{k_m}}$, all of them are pairwise disjoint.
 					
 					Now consider the composition $\gamma_{k_1}\gamma_{k_2}\cdots\gamma_{k_m}$. For any $x \in \Set{1, \ldots, n}$, then $\gamma_{k_d}(x) = \alpha(x)$ if $x$ and $k_d$ belong to the same cycle; else $\gamma_{k_d}(x) = x$. And so $\alpha = \gamma_{k_1}\gamma_{k_2}\cdots\gamma_{k_m}$.
 				\end{proof}
-				The proof above use the idea of constructing the sequence $k, \alpha k, \alpha^2 (k), \ldots \alpha^{u-1} (k)$ of elements of a group. This will be studied further in the notion of \textbf{orbits}. This decomposition is also unique up to the order of $y_{k_i}$, and it is called the \textit{standard representation} of $\alpha$.
+				The proof above use the idea of constructing the sequence $k, \alpha k, \alpha^2 (k), \ldots ,\alpha^{u-1} (k)$ of elements of a group. This will be studied further in the notion of \textbf{orbits}. This decomposition is also unique up to the order of $y_{k_i}$, and it is called the \textit{standard representation} of $\alpha$.
 				
 				Let's try to decompose a permutation using the theorem. Consider
 				\begin{equation*}
@@ -448,13 +484,16 @@
 				3 & 5 & 4 & 1 & 8 & 2 & 7 & 6
 				\end{pmatrix}
 				\end{equation*}
-				with $\alpha \in S_{8}$. The cycle formed by 1 is $\gamma_1 = (1 3 4)$. Continuing this, we have the collection $\Set{(1 3 4), (2 5 8 6), (7)}$, and the standard representation of $\alpha$ is $(1\,3\,4)(2\,5\, 8\,6)(7)$
-				
-				Finally, consider a cycle $\alpha$ of length $n$, then $\alpha^n = \iota$. Furthermore, for any positive integer $d$,
+				with $\alpha \in S_{8}$. The cycle formed by 1 is $\gamma_1 = (1 3 4)$. Continuing this, we have the collection $\Set{(1 3 4), (2 5 8 6), (7)}$, and the standard representation of $\alpha$ is $(1\,3\,4)(2\,5\, 8\,6)(7)$. One can drop the single cycle $(7)$ and so
 				\begin{equation*}
-				\alpha^d = (\gamma_{k_1}\gamma_{k_2}\cdots\gamma_{k_m})^d = \gamma_{k_1}^d\gamma_{k_2}^d\cdots\gamma_{k_m}^d.
+					\alpha = (1\,3\,4)(2\,5\, 8\,6).
 				\end{equation*}
-				It follows that if $d$ is the least common multiple of $n_{k_1}, n_{k_2}, \ldots, n_{k_m}$, where $n_{k_i}$ is the length of $\gamma_{k_i}$, then $\alpha^d = \iota$. The least common multiple is indeed the smallest positive integer with such property.
+				
+				Finally, consider a cycle $\alpha$ of length $n$. Note that $\alpha^n = \iota$. Furthermore, for any positive integer $d$,
+				\begin{equation*}
+				\alpha^d = (\gamma_{k_1}\gamma_{k_2}\cdots\gamma_{k_m})^d = \gamma_{k_1}^d\gamma_{k_2}^d\cdots\gamma_{k_m}^d,
+				\end{equation*}
+				since all cycles commute. It follows that if $d$ is the least common multiple of $n_{k_1}, n_{k_2}, \ldots, n_{k_m}$, where $n_{k_i}$ is the length of $\gamma_{k_i}$, then $\alpha^d = \iota$. The least common multiple is indeed the smallest positive integer with such property.
 			\subsection{Sign of Permutations}
 			
 			\subsection{Conjugacy in $S_n$ and $A_n$}
