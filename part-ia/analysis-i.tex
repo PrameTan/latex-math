@@ -1,0 +1,192 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+	\chapter{Analysis I}
+	A rigorous theory of mathematical analysis must take an axiomatic approach as its foundation. Thus it is preferable to start from the construction of real numbers, and then discover their properties, as not to take them for granted. This foundational rigour is, fortunately, available for us by Dedekind and his model for the real number.
+	
+	What are the essential properties of $\RR$? We have learnt that $\RR$ is a field, with the usual addition and multiplication; the usual subtraction and division is also possible.
+	
+	Secondly, there is a \textit{total order} on $\RR$, that is, if $x, y \in \RR$ then either $x \leq y$ or $y \leq x$, and only $x = y$ when both condition are satisfied. Furthermore, if $x \leq y$ and $y \leq z$ then $x \leq z$. This means $\RR$ is an \textit{ordered field} and that is, if $x \leq y$ then $x + z \leq y + z$, and if $w \geq 0$ then $xw \leq yw$.
+	
+	Of course, $\QQ$ is also an ordered field, but it is not \textit{complete}. This is the most important property of $\RR$ to keep in mind. Let's start by a notion of an \textit{upper bound}. If $A$ is a non-empty subset of $\RR$ and $b \in \RR$, then $b$ is an upper bound for $A$ if $b \geq a$ for all $a \in A$. By saying that $\RR$ is complete, this means that, if $A$ is a non-empty set of $\RR$ with an upper bound, then $A$ has a \textit{least upper bound}, or \textit{supremum} $\sup A$. This translates to, for any upper bound $b$ of a set $A \subset \RR$, should it exist, we have $\sup A \leq b$.
+	
+	Another central theme of analysis regards \textit{absolute value}, that is the function
+	\begin{equation}\abs{x} = 
+	\begin{cases*}
+	x & \text{ if $x \geq 0$}\\
+	0 & \text{ if $x = 0$} \\
+	-x & \text{ if $x \leq 0$}
+	\end{cases*}.
+	\end{equation}
+	
+	Note that $\abs{x - y} = \abs{y - x}$ and $\abs{x} \geq 0$ for all $x \in \RR$. 
+	\begin{theorem}
+		For all $x, y \in \RR$, $\abs{x + y} \leq \abs{x} + \abs{y}$, with equality when $ xy \geq 0$.
+	\end{theorem}
+	\begin{proof}
+		Trivial proof by case.
+	\end{proof}
+	\begin{theorem}(Triangle Inequality)
+		For all $x, y, z \in \RR$, we have
+		\begin{equation}
+		\abs{x - z} \leq \abs{x - y} + \abs{y - z}.
+		\end{equation}
+	\end{theorem}
+	\begin{proof}
+		Simply substitute $x - y$ and $y - z$ in place of $x$ and $y$, respectively.
+	\end{proof}
+	\section{Limit and Convergences}
+	\subsection{Series and sequences in $\mathbb{R}$ and $\mathbb{C}$}
+	\begin{definition}
+		A sequence $s_n$ is a \textit{null sequence} if, to every positive number $\epsilon$, there corresponds an integer $N$ such that
+		\begin{equation*}
+		\abs*{s_n} < \epsilon \text{ for all values of $n$ greater than } N.
+		\end{equation*}
+	\end{definition}
+	
+	We can adapt the definition to any sequence whose terms approach any number $s$.
+	
+	\begin{definition}
+		A sequence $s_n$ is said to tend to the limit $s$ if, given any positive number $\epsilon$, there is an integer $N$ (depending on $\epsilon$) such that
+		\begin{equation*}
+		\abs*{s_n - s} < \epsilon \text{ for all } n > N.
+		\end{equation*}
+		We then write $\lim s_n = s$.
+	\end{definition}
+	A more clear notation $\lim_{n \ra \infty} s_n = s$ can be given.
+	\begin{note}
+		\begin{enumerate}
+			\item Clearly, $\lim s_n = s$ if and only if $s_n - s$ is a null sequence.
+			
+			\item The inequality $\abs*{s_n - s} < \epsilon$ is equivalent to the two inequalities
+			\begin{equation*}
+			s - \epsilon < s_n < s + \epsilon.
+			\end{equation*}
+			This is clear that $s_n$ is bounded.
+			
+			\item A short notation $s_n \ra s$ stands for $\lim s_n = s$. A further symbolism for the above definition may be given:
+			\begin{equation*}
+			s_n \ra s \text{ if } \epsilon >0;\quad \exists N.\abs*{s_n - s} < \epsilon \text{ for all } n > N.
+			\end{equation*}
+		\end{enumerate}
+	\end{note}
+	If limits exist, they are unique.
+	\begin{theorem}
+		If $a_n \ra s$ as $n \ra \infty$ and $a_n \ra l$ as $n \ra \infty$, then $s = l$.
+	\end{theorem}
+	\begin{proof}
+		We will prove this theorem by contradiction. Suppose $s \neq l$. Let $\epsilon = \abs{s - l}/3 > 0$. There exists $n_0$ such that $\abs{a_n - s} < \epsilon$ for $n \geq n_0$, and there exists $m_0$ such that $\abs{a_n - l} < \epsilon$ for $n \geq m_0$. Let $N = \max(n_0 , m_0)$. Then if $n \geq N$,
+		\begin{equation*}
+		\abs{l - s} \leq \abs{a_n - l} + \abs{a_n - s} < 2\epsilon = 2\abs{l - s}/3,
+		\end{equation*}
+		a contradiction.
+	\end{proof}
+	We have discussed on upper bound and lower bound of a set, it is time to introduce a notion of \textit{boundedness}, and expand it to those of sequences in general.
+	\begin{definition}
+		A subset $A$ of $\RR$ is \textit{bounded} if it is bounded above and bounded below. A sequence $s_n$ is bounded if the set $\Set{s_n \colon n \in \ZZ^+}$ is bounded.
+	\end{definition}
+	\begin{theorem}
+		If a sequence tends to a limit, then it is bounded.
+	\end{theorem}
+	\begin{proof}
+		Let the sequence $a_n$ tends to the limit $l$. We choose an arbitrary $\epsilon$ so that for any $n \geq n_0$ the difference $\abs{a_n - l}$ is less than $\epsilon$. 
+		
+		Let $\epsilon = 1$, so that $\abs{a_n - l} < 1$ for all $n \geq n_0$. Choose
+		\begin{equation*}
+		M = \max\Set{\abs {a_1} , \abs {a_2}, \ldots, \abs {a_{n_0}}, \abs{l} + 1}.
+		\end{equation*}
+		Then for all $n \geq n_0$ $\abs{a_{n}} \leq \abs{a_{n} - l} + \abs{l} < 1 + \abs{l}$. Clearly, $\abs{a_n} \leq M$ and we are set.
+	\end{proof}
+	Note that the converse of the theorem might not be true; if a sequence is bounded, then it \textit{might not} tends to a limit. Consider the sequence $a_n = \cos n\pi$. It is bounded, but $a_n$ does not tend to a limit.
+	\begin{theorem}
+		Suppose that $a_n$ is an increasing sequence of real numbers. If it is bounded then $a_n \ra \sup\Set{a_n \colon n \in \ZZ^+}$ as $n \ra \infty$; otherwise $a_n \ra +\infty$.
+		
+		Similarly, for any decreasing sequence $a_n$; and if it is bounded, then $a_n \ra {\inf\Set{a_n \colon n \in \ZZ^+}} $; otherwise $a_n \ra -\infty$.
+	\end{theorem}
+	
+	One sequence worth considering is the sequence $a_n = r^n$. The convergence of the sequence depends on the value of $r$.
+	\begin{enumerate}
+		\item If $r = 1$ then $a_n \ra 1$, and if $r = 0$ then $a_n \ra 0$.
+		
+		\item If $r > 1$ then $r = 1 + k$ for some $k > 0$, so we have
+		\begin{equation*}
+		a_n = \left(1 + k\right)^n > 1 + kn
+		\end{equation*}
+		by considering the first two terms in the binomial expansion. And so $a_n \ra +\infty$.
+	\end{enumerate}
+	\subsection{Sums, products and quotients}
+	\begin{theorem}
+		If $s_n$ and $t_n$ are null sequences, so is $s_n + t_n$.
+	\end{theorem}
+	
+	\begin{theorem}
+		If $s_n$ is a null sequence and $t_n$ is a bounded sequence, then $s_n t_n$ is a null sequence.
+	\end{theorem}
+	
+	\begin{corollary}
+		If $s_n$ is a null sequence and $c$ is a constant, then $cs_n$ is a null sequence.
+	\end{corollary}
+	We then now extend the results to general sequences.
+	\begin{theorem}
+		If $s_n \ra s$ and $t_n \ra t$, then
+		\begin{enumerate}
+			\item $s_n + t_n \ra s + t$,
+			\item $s_n t_n \ra st$.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{theorem}
+		If $s_n \ra s$ and $t_n \ra t$ with $t \neq 0$, then
+		\begin{equation*}
+		\frac{s_n}{t_n} \ra \frac{s}{t}
+		\end{equation*}
+	\end{theorem}
+	
+	\begin{theorem}
+		If $s_n \ra s$ and $t_n \ra t$ and $s_n \leq b_n$ for all $n$, then $a \leq b$.
+	\end{theorem}
+	
+	\begin{theorem}
+		If $s_n \ra s$ and $s_{n_k}$ is a subsequence, then $s_{n_k} \ra s$.
+	\end{theorem}
+	
+	\subsection{Absolute convergence}
+	
+	\subsection{Bolzano-Weierstrass theorem}
+	\begin{theorem}(Bolzano-Weierstrass theorem)
+		Suppose that $a_n$ is a bounded sequence of real numbers. There there is a subsequence $a_{n_k}$ which converges.
+	\end{theorem}
+	\subsection{Comparison and ratio test}
+	
+	\subsection{Alternating series test}
+	
+	\section{Continuity}
+	\subsection{Continuity of real and complex function}
+	
+	\subsection{The intermediate value theorem}
+	
+	\section{Differentiability}
+	\subsection{Differentiability of functions from $\RR$ to $\RR$}
+	
+	\subsection{Derivative of sums and products}
+	
+	\section{Power series}
+	\begin{definition}
+		An infinite series of the form
+		\begin{equation*}
+		\sum_{n = 0}^{\infty} a_n z^n = a_0 + a_1 z + a_2 z^2 + \cdots
+		\end{equation*}
+		composed of multiples of powers of $z$ is called a \textit{power series}. Both the variable $z$ and the coefficients $a_n$ might be real of complex.
+	\end{definition}
+	There are three possibilities with convergence of a power series.
+	\begin{enumerate}
+		\item The series converges for all $z \in \CC$.
+		
+	\end{enumerate}
+	
+	
+	
+	\section{Integration}
+	\subsection{Integrability of monotonic functions}
+	
+\end{document}

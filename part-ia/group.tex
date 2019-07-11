@@ -1,0 +1,464 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+	\chapter{Groups}
+		\section{Examples of Groups}
+			\subsection{Axioms for groups}
+				\begin{definition}
+					A \textit{group} \index{Group} is a set $G$, together with a binary operation $\ast$ on $G$ with the following properties.
+					\begin{enumerate}
+						\item (Closure axiom) for all $g$ and $h$ in $G$, $g \ast h \in G$;
+						\item (Associativity) for all $f, g$ and $h$ in $G$, $g \ast h \in G$, $f\ast(g\ast h) = (f \ast g) \ast h$;
+						\item (Existence of identity) there is a unique $e$ in $G$ such that for all $g$ in $G$, $g \ast e = g = e \ast g$;
+						\item (Existence of inverse) if $g \in G$ there is some $h$ in $G$ such that $g \ast h = e = h \ast g$.
+					\end{enumerate}
+				\end{definition}
+			These results follow nicely.
+			\begin{lemma}
+	Let $G$ be any group. Then, given $g \in G$, there is only one element $h$ such that $g \ast h = e = h \ast g $. Particularly $(g^{-1})^{-1} = g.$
+			\end{lemma}
+			\begin{lemma}[Cancellation law]
+				Suppose that $a,b$ and $x$ are in a group $G$. If $a \ast x = b \ast x$ then $a = b$.
+		\end{lemma}
+				\begin{lemma}
+		Suppose that $a$ and $b$ are in a group $G$. Then the equation $a \ast x = b$ has a unique solution $x = a^{-1} \ast b$.
+	\end{lemma}
+		\begin{lemma}
+			In any group $G$, $e$ is the unique solution of $x \ast x = x$.
+		\end{lemma}
+		Notice that we do not include the familiar assumption that $f \ast g = g \ast f$ normally found in arithmetic. In fact, for some interesting groups this equality does not hold.
+		\begin{definition}
+			Let $G$ be a group with respect to $\ast$. The elements $f$ and $g$ \textit{commute} if $f \ast g = g \ast f$. We call $G$ \textit{abelian} if for all $f$ and $g$ in $G$, we have $f \ast g = g \ast f$.
+		\end{definition}
+		We adopt the notation $gh$ as equivalent to $g \ast h$ for simplicity.
+		
+	\subsection{Examples from geometry}
+		In this section we examine the idea of group in geometry, using polygons.
+		
+		
+	\subsection{Permutation on a set}
+				In this section we will show that permutations of a non-empty set $X$, in fact, form a group. 
+				We start with the definition of permutations acting on a set, although only for finite sets, before developing the idea further into arbitrary sets.
+				
+				\begin{definition}
+					A \textit{permutation} $\alpha \colon X \ra X$ is a bijection from $X$ to itself. We say that $\alpha$ acts on the set $X$. The set of all permutations of $X$ is denoted $\mathcal{P}(X)$.				
+				\end{definition}
+				This set is indeed a group.
+				\begin{theorem}
+					The set $\mathcal{P}(X)$ forms a group under composition of functions. We shall write $\alpha\beta(x)$ in place of $\alpha(\beta(x))$.
+				\end{theorem}
+				\begin{proof}
+					We will show that all group axioms are satisfied.
+					\begin{enumerate}
+						\item It is obvious that if $\alpha, \beta$ are permutations, then $\alpha\beta$ is also a permutation. Thus the set $\mathcal{P}(X)$ is closed under composition.
+						
+						\item For any permutations $\alpha, \beta, \gamma$, let $\mu = \alpha\beta$ and $\nu = \beta\gamma$. Then for every $x$ in $X$,
+						\begin{equation}
+						\begin{aligned}
+							(\alpha(\beta\gamma))(x) & = (\alpha\nu)(x) \\
+									& = \alpha(\nu(x))	\\
+									& = \alpha(\beta(\gamma(x))) \\
+									& = \mu(\gamma(x))	\\
+									& = (\mu\gamma)(x) \\
+									& = ((\alpha\beta)\gamma)(x).
+						\end{aligned}
+						\end{equation}
+						Thus the permutations are commutative under composition.
+						
+						\ii The identity permutation $\iota (x) = x$ is the identity of $\mathcal{P}(X)$, since $\alpha\iota(x) = \alpha(x) = \iota\alpha(x)$.
+						
+						\ii For any element $\alpha$ of $X$, the inverse is simply its functional inverse $\alpha^{-1}$. Direct verification shows that $\alpha\alpha^{-1} = \iota = \alpha^{-1}\alpha$.
+					\end{enumerate}
+				\end{proof}
+				The above proof lets us write $\alpha\beta\gamma$ for any composition of three or more permutations without any confusion.
+				
+				Setting $X = \Set{1, \ldots, n}$, the study of permutation groups is simpler. We shall give a name for such group.
+				\begin{definition}
+					The \textit{symmetric group} \index{Symmetric group} $S_n$ is a set of permutations of $\Set{1, \ldots, n}$. We say that the group is of degree $n$.
+				\end{definition}
+
+				\begin{theorem}
+					The order of $S_n$ is $n!$.
+				\end{theorem}
+				\begin{proof}
+					Evidently, there are $n!$ permutations on a set with $n$ elements.
+				\end{proof}
+				We now introduce a customary notation for permutation $\rho(x)$ in the form
+				\begin{equation*}
+					\rho =
+					\begin{pmatrix}
+						1 & 2 & 3 & \cdots & n \\
+						\rho(1) & \rho(2) & \rho(3) & \cdots & \rho(n)
+					\end{pmatrix},
+				\end{equation*}
+				which mean that the image of the permutation $\rho(i)$ is underneath $i$ in the first row. For example, let $\alpha$ be a permutation on $\Set{1, 2, 3, 4}$ with $\alpha(1) = 1, \alpha(2) = 4, \alpha(3) = 2$ and $\alpha(4) = 3$, then
+				\begin{equation*}
+				\alpha =
+				\begin{pmatrix}
+					1 & 2 & 3 & 4\\
+					1 & 4 & 2 & 3
+				\end{pmatrix}.
+				\end{equation*}
+				\begin{example}
+					There are 6 permutations in $S_3$, they are
+					\begin{equation*}
+					\begin{pmatrix}
+					1 & 2 & 3\\
+					1 & 2 & 3
+					\end{pmatrix}, 
+					\begin{pmatrix}
+					1 & 2 & 3\\
+					1 & 3 & 2
+					\end{pmatrix}, 
+					\begin{pmatrix}
+					1 & 2 & 3\\
+					2 & 1 & 3
+					\end{pmatrix}, 
+					\begin{pmatrix}
+					1 & 2 & 3\\
+					2 & 3 & 1
+					\end{pmatrix}, 
+					\begin{pmatrix}
+					1 & 2 & 3\\
+					3 & 1 & 2
+					\end{pmatrix},
+					\begin{pmatrix}
+					1 & 2 & 3\\
+					3 & 2 & 1
+					\end{pmatrix}.
+					\end{equation*}
+				\end{example}
+			Note that
+			\begin{equation*}
+				\begin{pmatrix}
+					1 & 2 & 3 \\
+					1 & 3 & 2
+				\end{pmatrix}
+				\begin{pmatrix}
+				1 & 2 & 3 \\
+				2 & 1 & 3
+				\end{pmatrix}
+				= \begin{pmatrix}
+				1 & 2 & 3 \\
+				3 & 1 & 2
+				\end{pmatrix}
+				\neq
+				\begin{pmatrix}
+				1 & 2 & 3 \\
+				2 & 3 & 1
+				\end{pmatrix}
+				= 	\begin{pmatrix}
+				1 & 2 & 3 \\
+				2 & 1 & 3
+				\end{pmatrix}
+				\begin{pmatrix}
+				1 & 2 & 3 \\
+				1 & 3 & 2
+				\end{pmatrix}.
+			\end{equation*}
+			Therefore $S_3$ is not abelian. More generally $S_n$ is not abelian for $n \geq 3$. We will study permutations in more details later on.
+
+	\subsection{Subgroups and homomorphisms}
+		\begin{definition}
+			A \textit{subgroup} of a group $G$ is a subset of $G$ which itself form a group under the operation taken from $G$.
+		\end{definition}
+		\begin{theorem}
+			Let $H$ be a subgroup of $G$, then the identity element of $H$ is that of $G$.
+		\end{theorem}
+	
+		A group $G$ always at least admits two subgroup, namely $G$ and the singleton $\Set{e}$. We call $\Set{e}$ the \textit{trivial subgroup} of $G$, and we say that $H$ is the \textit{non-trivial subgroup} of $G$ if $H \neq \Set{e}$. We say that $H$ is a \textit{proper subgroup} of $G$ if $H \neq G$.
+		
+		We now give a test for a subset to be a subgroup.
+		
+		\begin{theorem}[A test for subgroup]
+			Let $G$ be a group, and $H$ be a non-empty subset of $G$. Then $H$ is a subgroup of $G$ if and only if
+			\begin{enumerate}
+				\item if $g \in H$ and $h \in H$, then $gh \in H$, and
+				\item if $g \in H$ then $g^{-1} \in H$.
+			\end{enumerate}
+		\end{theorem}
+		
+		Another test is similar and follows from the above theorem.
+		\begin{theorem}
+			Let $G$ be a group, and $H$ be a non-empty subset of $G$. Then $H$ is a subgroup of $G$ if and only if $xy^{-1} \in H$ whenever $x,y \in H$.
+		\end{theorem}
+		
+			The following property of the class of subsets of $G$ is important.
+		\begin{theorem}
+			Let $G$ be any group, then the intersection of any collection of subgroups of $G$ is itself a subgroup of $G$.
+		\end{theorem}
+			\begin{proof}
+				Note that the intersection $\cap_t H_t$ of the subgroups of $G$, defined as $H_t$ for some $t$ in the index set $T$, is not empty. Then for every elements $g \in \cap_t H_t$ and $h \in \cap_t H_t$, they also lie in $H_t$ for every $t$. And thus $gh \in H_t$, so $gh \in \cap_t H_t$. Any element $g \in \cap_t H_t$ also has its inverse in every subgroup $H_t$. It then follows that $g^{-1} \in \cap_t H_t$. Therefore $\cap_t H_t$ forms a subgroup under the operation of $G$.
+			\end{proof}
+		
+			As a consequence, we see that for any non-empty subset $G_0$ of $G$, we can consider the intersection of the collection of all subgroups $H$ of $G$ than contain $G_0$. The collection is not empty, since $G$ is itself in the collection. It follows that the intersection is itself not empty, and is a subgroup of $G$ that contain $G_0$. In fact, it is the \textit{smallest subgroup} to contain $G_0$. This allows us to propose the next definition.
+			
+			\begin{definition}
+				Let $G_0$ be a non-empty subset of a group $G$. The subgroup of $G$ \textit{generated by} $G_0$ is the smallest subgroup of $G$ that contains $G_0$.
+			\end{definition}
+			
+			The idea of subgroup is expanded into the notion of a \textbf{coset}, which will be explored later.
+		\begin{definition}
+			Let $G, G'$ be groups. A function $\phi \colon G \ra G'$ is a \textit{homomorphism} if it takes the action of $G$ to that of $G'$, namely
+			\begin{equation*}
+					\phi(gh) = \phi(g)\phi(h),
+			\end{equation*}
+			for all $g, h \in G$.
+		\end{definition}
+			
+			
+	\subsection{Symmetry groups}
+		
+	\subsection{The M\"obius group}
+		We first begin with the definition of M\"obius transformation.
+		\begin{definition}
+			A \textit{M\"obius transformation} is a function $f$ of a complex variable $z$ in the form
+			\begin{equation*}
+				f(z) = \frac{az + b}{cz + d},
+			\end{equation*}
+			for some complex numbers $a, b, c$ and $d$, with the condition that $ad - bc \neq 0$.
+		\end{definition}
+		The condition $ad - bc \neq 0$ might not be obvious, but it follows from the fact that
+		\begin{equation*}
+			f(z) - f(w) = \frac{(ad - bc)(z - w)}{(cz+d)(cw + d)}.
+		\end{equation*}
+		If $ad - bc = 0$, then $f$ is constant. This also shows that $f$ is injective.
+		
+		This definition of the M\"obius transformation has two problems. First, a M\"obius transformation $f$ is not unique. As for example, the 4-tuples $(a,b,c,d)$ and $(ma, mb, mc, md)$ with $m \neq 0$ will all map a complex number $z$ to a same number. Thus, given $f$, we \textit{cannot} say what are the coefficients.
+		
+		The second problem stems from the fact that, for example $1/(z - z_0)$ is not defined at the point $z_0$. This means that there is no subset of $\CC$ on which all M\"obius maps are defined.
+		
+		Here is an example of this.
+		\begin{example}
+			Let $f(z) = (z + 2)/ z$ and $g(z) = (z + 1)/(z - 1)$. Then,
+			\begin{equation*}
+				f(g(z)) = \frac{g(z) + 2}{g(z)} = \frac{(z + 1)+ 2(z-1)}{z+ 1} = \frac{3z - 1}{z + 1},
+			\end{equation*}
+			so that $fg$ fixes the point $1$. However, $g$ \textit{is not defined when} $z = 1$. What's worse is that, if $h(z) = 1/z$ then $hfg(z) = (z+1)/(3z - 1)$, although $g$ is not defined when $z = 1$, $fg(z)$ is not defined when $z = -1$, and $hfg(z)$ is not defined when $z = 1/3$. More generally, a composition $f_1 \cdots f_n$ of M\"obius maps will not be defined at $n$ distinct points in the complex plane.
+		\end{example}
+		The following theorem addresses the first problem.
+		\begin{theorem}
+			Suppose that $a, b, c, d, \alpha, \beta, \gamma \text{ and } \delta$ are complex numbers with ${(ad - bc)}{(\alpha\delta - \beta\gamma)}{ \neq 0}$, and such that for at least three distinct values of $z$ in $\CC$, $cz + d \neq 0, \gamma z+ \delta \neq 0$, and
+			\begin{equation*}
+				\frac{az + b}{cz + d} = \frac{\alpha z + \beta}{\gamma z + \delta}.
+			\end{equation*}
+			Then there is some non-zero complex number $\lambda$ such that
+			\begin{equation}
+				\begin{pmatrix}
+					\alpha & \beta \\
+					\gamma & \delta
+				\end{pmatrix}
+				= \lambda\begin{pmatrix}
+					a & b \\
+					c & d
+				\end{pmatrix}.
+			\end{equation}
+		\end{theorem}
+		\begin{proof}
+			Consider the quadratic polynomial
+			\begin{equation*}
+				(az + b)(\gamma z + \delta) = (\alpha z + \beta)(cz + d).
+			\end{equation*}
+			The polynomial has three distinct roots, and so it must be a zero polynomial. Therefore, $a\gamma = c\alpha, b\gamma + a \delta = c\beta + d\alpha$ and $b\delta = d\beta$, which is equivalent to
+			\begin{equation*}
+				\begin{pmatrix}
+					d & -b\\
+					-c & a
+				\end{pmatrix}
+				\begin{pmatrix}
+				\alpha & \beta \\
+				\gamma & \delta
+				\end{pmatrix}
+				=
+				\begin{pmatrix}
+					\mu		&	0\\
+					0		& \mu
+				\end{pmatrix},
+			\end{equation*}
+			where $\mu^2 = {(ad - bc)}{(\alpha\delta - \beta\gamma)}{ \neq 0}$. We then have
+			\begin{equation*}
+				\begin{pmatrix}
+				\alpha & \beta \\
+				\gamma & \delta
+				\end{pmatrix}
+				= \frac{\mu}{ad - bc}\begin{pmatrix}
+				a & b \\
+				c & d
+				\end{pmatrix}.
+			\end{equation*}%
+		\end{proof}
+		The first problem is then resolved by showing that the 4-tuple $(a,b,c,d)$ determines $f$, up to non-zero multiple. The second problem will be resolved differently, by joining an extra point, which is called \textit{the point at infinity} to $\CC$. This point is denoted $\infty$.
+	
+	
+		\section{Lagrange's Theorem}
+			\subsection{Cosets}
+				We have introduced the idea of subgroup in the previous section. Now we come to the idea of constructing a subset of any group $G$ from its subgroup. For example, we could define a new subset $XY$ of $G$ by
+				\begin{equation*}
+					XY = \Set{xy \colon x \in X, y\in Y}
+				\end{equation*}
+				for any subgroup $X, Y$ of $G$. If $X$ is a singleton, that is $X = \Set{x}$, we shall adopt a notation $XY = xY$. Such constructions which we shall consider are of the form
+				\begin{equation*}
+					gH = \Set{gh \colon h\in H} \text{ or } Hg = \Set{hg \colon h \in H}
+				\end{equation*}
+				for some $g \in G$, and $H$ is a subgroup of $G$. The set $gH$ is called the \textit{left coset} of $H$ with respect to $g$, similarly, $Hg$ is the \textit{right coset} of $H$ with respect to $g$. Some constructions of this type might turn out to be the same set $H$. This is illustrated below.
+				
+				\begin{theorem}
+					Let $H$ be a subgroup of $G$, and $g \in G$. Then $g \in H$ if and only if $gH = H$ (or $Hg = H$).
+				\end{theorem}
+				
+				Thus we concern ourselves to the study of $gH$ when $g \notin H$. We will adopt an additive notation $g + H$ in place of $gH$ when such subgroups employ addition. The next results show that a group can be divided into disjoint cosets. This is called the \textit{coset decomposition of $G$}.
+				
+				\begin{theorem}
+					Let $H$ be a subgroup of a group $G$, then $G$ is a union of its left (or right) cosets.
+				\end{theorem}
+				\begin{proof}
+					Clearly, for any $g \in G$, $g \in gH$. So $g$ is contained in the union.
+				\end{proof}
+			
+				\begin{theorem}
+					Let $H$ be a subgroup of a group $G$, then any two left cosets of $G$ are either equal or disjoint.
+				\end{theorem}
+				\begin{proof}
+					Let $f, g \in G$ and $fH, gH$ are the two left cosets. Suppose that $fH$ and $gH$ are disjoint, that is, the set $fH \cap gH$ is not empty. Then there exists an element $x \in fH \cap gH$, and so $fy_1 = gy_2$ for some $y_1, y_2 \in H$. Thus $g^{-1}f = y_2y^{-1}_1 \in H$ and so $g^{-1}fH = H$; hence $gH = g g^{-1} f H = fH$, hereby proving the theorem.
+				\end{proof}
+				\begin{corollary}
+					If $fH = gH$, then $g^{-1} f \in H$.
+				\end{corollary}
+				
+			\subsection{Lagrange’s theorem}
+			Recall the definition of an \textit{order} of a group, denoted $\abs{G}$. The next theorem shows the connection between the orders of a group and its subgroup.
+				\begin{theorem}[Lagrange's theorem]
+					Let $H$ be a subgroup of a finite group $G$. Then $\abs{H}$ divides $G$, and $\abs{G}/\abs{H}$ is the number of distinct left (or right) cosets of $H$ in $G$.
+				\end{theorem}
+				\begin{proof}
+					From the previous theorem we can write a group $G$ as a union of the pairwise disjoint coset left of $H$. Therefore $G = g_1H \cup g_2 H \cup \cdots \cup g_r H$. Consequently,
+					\begin{equation*}
+						\abs{G} = \abs{g_1 H} + \abs{g_2 H} + \cdots + \abs{g_r H}.
+					\end{equation*}
+					It remains to show that $\abs{g_1 H} = \abs{g_2 H} = \cdots = \abs{g_r H} = \abs{H}$. Notice that the map $x \mapsto g_j x$ is a bijection from $H$ to $g_j H$, and so $\abs{g_1 H} = \abs{g_2 H} = \cdots = \abs{g_r H} = \abs{H}$. Therefore $\abs{G} = r\abs{H}$ and the results follow.
+				\end{proof}
+			
+			One of the corollary of Lagrange's theorem is the following result.
+			\begin{corollary}
+					Let $g$ be an element of a finite group $G$. Then the order of $g$ divides the order of $G$.
+			\end{corollary}
+			\begin{proof}
+				Let $d$ be the order of $g$. The subgroup $H = \Set{e, g, g^1, \ldots, g^{d-1}}$ is a subgroup of order $d$. By Lagrange's Theorem, $\abs H \mid \abs G$.
+			\end{proof}
+			\subsection{Group of small order (up to 8)}
+			
+			\subsection{Quaternions}
+			
+			\subsection{Fermat-Euler theorem}
+			
+		\section{Group actions}
+		This section studies \textbf{group actions}.
+			\subsection{Group actions}
+			
+			\subsection{Orbit-stabilizer theorem}
+			
+			\subsection{Cayley's theorem}
+			
+			\subsection{Conjugacy classes}
+			
+			\subsection{Cauchy's theorem}
+			
+		\section{Quotient groups}
+			\subsection{Normal subgroups}
+			
+			\subsection{Quotient groups}
+			
+			\subsection{The isomorphism theorem}
+			
+		\section{Matrix groups}
+			\subsection{The general and special linear groups}
+			
+			\subsection{The orthogonal and special orthogonal groups}
+			
+			\subsection{Basis change}
+			
+		\section{Permutations}
+			\subsection{Permutations, Cycles and Transpositions}
+				We have given the definition of permutations before.
+				\begin{definition}
+					Any permutations $\alpha, \beta$ are said to be \textit{disjoint} if, for every $k$ in $\Set{1, 2, \ldots, n}$, either $\alpha(k) = k$ or $\beta(k) = k$.
+				\end{definition}
+				\begin{theorem}
+					Two permutations commute if they are disjoint.
+				\end{theorem}
+				\begin{proof}
+					Let the two permutations be $\alpha$ and $\beta$. For any $k \in \Set{1, \ldots, n}$, suppose that $\alpha$ fixes k, the case for $\beta$ can be argued similarly. 
+					
+					Let $\beta(k) = k'$. Then $\alpha\beta (k) = \alpha(k')$ and $\beta\alpha(k) = \beta(k) = k'$. We shall prove that indeed $\alpha(k') = k$.
+					
+					If $\beta(k') \neq k'$ then we are done by the premise. So suppose $\beta(k') = k'$, but then $\beta(k') = k' = \beta(k)$. This implies $k = k'$ and so $\alpha(k') = \alpha(k) = k'$ as required.
+				\end{proof}
+				We shall further simplify the notation, by introducing fixed points.
+				\begin{definition}
+					We call that $k$ is a \textit{fixed point} \index{Fixed point} of $\alpha$, and that $\alpha$ fixes $k$, if $\alpha(k) = k$.
+				\end{definition}
+				And so, by convention, we shall left out any integers fixed by $\alpha$. For example, the permutation
+				\begin{equation*}
+				\alpha = \begin{pmatrix}
+				1 & 3 \\
+				3 & 1
+				\end{pmatrix}
+				\end{equation*}
+				interchanges 1 and 3, and fixes 2. This notation is still too cumbersome for large $n$, this drives us to find a new notation. Let us start by noticing that, if we repeatedly apply any permutation $\alpha$, any elements in $\Set{1, 2, \ldots, n}$ must eventually return. For example, let
+				\begin{equation*}
+				\alpha = \begin{pmatrix}
+				1 & 2 & 3 & 4 & 5\\
+				5 & 3 & 4 & 2 & 1
+				\end{pmatrix},
+				\end{equation*}
+				then $\alpha^2(1) = 1, \alpha^3(2) = 1, \alpha^3(3) = 3, \alpha^3(4) = 4$ and $\alpha^2(5) = 5$. This is easily proven using the pigeonhole principle. Notice that 1 and 5 form a \textit{cycle} between each other, as $\alpha$ sends 1 to 5 and also send 5 to 1; this is also the case for 2, 3, 4. The permutation $\alpha$ sends 2 to 3, 3 to 4, and 4 to 2. This is the motivation to define \textit{cycles}.
+				\begin{definition}
+					A \textit{cycle} between $n_1, n_2, \ldots, n_q$ is the permutation
+					\begin{equation*}
+					\begin{pmatrix}
+					n_1 & n_2 & \cdots & n_q \\
+					n_2 & n_3 & \cdots & n_1
+					\end{pmatrix}.
+					\end{equation*}
+					It is denoted by $(n_1\,n_2\,\cdots\,n_q)$. The cycle is said to be of length $q$.
+				\end{definition}
+				The integers $n_1, n_2, \ldots, n_q$ need not be in an increasing order. By inspection, $\alpha = (1\,5)(2\, 3\,4) = (2\,3\,4)(1\,5)$. We will show that any permutation can be written in this manner, as the compositions of cycles.
+				
+				\begin{theorem}
+					Any permutation $\alpha$ in the symmetric group $S_n$ can be written as a composition of disjoint cycles.
+				\end{theorem}
+				\begin{proof}
+					This will employ the similar strategy used above. For any integer $k \in \Set{1, \ldots, n}$, we apply $\alpha$ repeatedly, and so we have the sequence $k, \alpha (k), \alpha^2 (k), \ldots$, and so some elements of this sequence must coincide. Let the two such elements be $\alpha^p(k) = \alpha^q (k)$, with $p < q$. Thus $\alpha^{q - p}(k) = k$. Now there exists a smallest positive number $u$ such that $\alpha^u (k) = k$.
+					
+					The sequence  $k, \alpha (k), \alpha^2 (k), \ldots, \alpha^{u-1}(k)$ must be distinct. Construct the cycle 
+					\begin{equation*}
+					\gamma_k = (k, \alpha k, \alpha^2 (k), \ldots, \alpha^{u-1}(k)).
+					\end{equation*} 
+					Now, two cycles are either disjoint or identical. For if $y = \alpha^{d} (x)$ for some integer $d$, then $\gamma_x = \gamma_y$, and we say that $x$ and $y$ belong to the same cycle. Continue doing this for all elements of $\Set{1, \ldots, n}$, we will have a collection of cycles $\Set{\gamma_{k_1}, \gamma_{k_2}, \ldots, \gamma_{k_m}}$, all of them are pairwise disjoint.
+					
+					Now consider the composition $\gamma_{k_1}\gamma_{k_2}\cdots\gamma_{k_m}$. For any $x \in \Set{1, \ldots, n}$, then $\gamma_{k_d}(x) = \alpha(x)$ if $x$ and $k_d$ belong to the same cycle; else $\gamma_{k_d}(x) = x$. And so $\alpha = \gamma_{k_1}\gamma_{k_2}\cdots\gamma_{k_m}$.
+				\end{proof}
+				The proof above use the idea of constructing the sequence $k, \alpha k, \alpha^2 (k), \ldots \alpha^{u-1} (k)$ of elements of a group. This will be studied further in the notion of \textbf{orbits}. This decomposition is also unique up to the order of $y_{k_i}$, and it is called the \textit{standard representation} of $\alpha$.
+				
+				Let's try to decompose a permutation using the theorem. Consider
+				\begin{equation*}
+				\alpha =
+				\begin{pmatrix}
+				1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+				3 & 5 & 4 & 1 & 8 & 2 & 7 & 6
+				\end{pmatrix}
+				\end{equation*}
+				with $\alpha \in S_{8}$. The cycle formed by 1 is $\gamma_1 = (1 3 4)$. Continuing this, we have the collection $\Set{(1 3 4), (2 5 8 6), (7)}$, and the standard representation of $\alpha$ is $(1\,3\,4)(2\,5\, 8\,6)(7)$
+				
+				Finally, consider a cycle $\alpha$ of length $n$, then $\alpha^n = \iota$. Furthermore, for any positive integer $d$,
+				\begin{equation*}
+				\alpha^d = (\gamma_{k_1}\gamma_{k_2}\cdots\gamma_{k_m})^d = \gamma_{k_1}^d\gamma_{k_2}^d\cdots\gamma_{k_m}^d.
+				\end{equation*}
+				It follows that if $d$ is the least common multiple of $n_{k_1}, n_{k_2}, \ldots, n_{k_m}$, where $n_{k_i}$ is the length of $\gamma_{k_i}$, then $\alpha^d = \iota$. The least common multiple is indeed the smallest positive integer with such property.
+			\subsection{Sign of Permutations}
+			
+			\subsection{Conjugacy in $S_n$ and $A_n$}
+			
+			\subsection{Simple Groups}
+			
+\end{document}

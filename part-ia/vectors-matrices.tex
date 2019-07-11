@@ -1,0 +1,76 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+\chapter{Vectors and Matrices}
+%		\section{Complex Numbers}
+	\section{Vectors}
+		\subsection{Vector Algebra in $\mathbb{R}^3$}
+			Combining two vectors
+		
+		\subsection{Vectors in $\RR^n$ and $\CC^n$}
+			Let us consider the vector in $\RR^n$, the natural generalisation of $\RR^3$.
+			\begin{definition}
+				Using the standard basis $e_1, \ldots, e_n$ of $\RR^n$, if $x = \sum_j x_j e_j$ and $y = \sum_j y_j e_j$, we write
+				\begin{equation*}
+					x \cdot y = \sum_{j = 1}^{n} x_j y_j, \norm{x}^2 = x \cdot x = \sum_{j = 1}^{n} x^2_j,
+				\end{equation*}
+				and $x \perp y$ when $x\cdot y = 0$.
+			\end{definition}
+		Note that $\norm x = \norm {-x}$. The distance $\norm{x - y}$ between the points $x$ and $y$ is given by the natural extension of Pythagoras' theorem, and importantly, satisfies the \textit{triangle inequality}.
+		\begin{theorem}[The triangle inequality for $\RR^n$]
+			For all $x, y, z$ in $\RR^n$,
+			\begin{equation}
+				\norm{x - y} \leq \norm{x - y} + \norm{y - z}.
+			\end{equation}
+		\end{theorem}
+		To prove this assertion, it is sufficient to show that $\abs{x \cdot y} \leq \norm x \norm y$, so that we have $\norm{x + y} \leq \norm x + \norm y$, which readily implies the triangle inequality. Thus we seek to prove
+		\begin{theorem}[the Cauchy-Schwarz inequality]
+			For all $x, y \in \RR^n$,
+			\begin{equation}
+				\abs{x \cdot y} \leq \norm x \norm y.
+			\end{equation}
+			The equality holds if and only if $\norm x y = \pm \norm y x$, i.e. one vector is a multiple of one another. 
+		\end{theorem}
+		\begin{proof}
+			Let $x = (x_1, \ldots, x_n)$ and $y = (y_1, \ldots, y_n)$. The equation holds true when $x = 0$ and when $y = 0$. So we assume that $\norm x \norm y > 0$.
+			
+			Consider the equation
+			\begin{equation*}
+				0 \leq \sum_{j = 1}^n \left(\norm x y_j - \norm y x_j\right)^2 = 2\norm x \norm y \left(\norm x \norm y - xy\right),
+			\end{equation*}
+			so $x \cdot y \leq \norm x \norm y$; similarly, put $ - x $ as $x$ and we have $- x \cdot y \leq \norm x\norm y$. Therefore $\abs{x \cdot y} \leq \norm x \norm y$. Equality holds if $\sum_{j = 1}^n \left(\norm x y_j - \norm y x_j\right)^2$ or $\sum_{j = 1}^n \left(\norm x y_j + \norm y x_j\right)^2$ is equal to zero, which implies $ \norm x y = \pm \norm y x$.
+		\end{proof}
+	
+		\subsection{Concepts in linear algebra}
+	\section{Matrices}
+		\begin{definition}
+			An $n \times m$ matrix is an array of numbers of the form
+			\begin{equation*}
+				\begin{pmatrix}
+				a_{11} & a_{12} & \ldots & a_{1m} \\
+				a_{21} & a_{22} & \ldots & a_{2m} \\
+				\vdots & \vdots & \ddots & \vdots \\
+				a_{n1} & a_{n2} & \ldots & a_{nm}
+				\end{pmatrix}.
+			\end{equation*}
+			Sometimes it will be denoted by $(a_{ij})$, where $a_{ij}$ is the general element of the matrix.
+		\end{definition}
+			Notice that $i$ is the \textit{row} of the element, and $j$ is the \textit{column} of the element.
+		\subsection{Algebra of Matrices}
+		
+		\subsection{Matrix as linear transformation}
+			We start with the definition of linear transformations.
+			\begin{definition}
+				A map $\alpha \colon V \ra W$ between vector spaces $V$ and $W$ is \textit{linear} if, for all scalars $\lambda_1, \ldots, \lambda_n,$ and all vectors $v_1, \ldots, v_n$,
+				\begin{equation*}
+					\alpha\left(\lambda_1v_1 + \cdots + \lambda_n v_n\right) = \lambda_1\alpha(v_1) + \cdots + \lambda_n\alpha(v_n).
+				\end{equation*}
+			If $\alpha$ is linear we say that it is a \textit{linear transformation}, or a \textit{linear map}, if for all scalars $\lambda$ and all vectors $u$ and $v$, $\alpha(\lambda x) = \lambda\alpha(x)$ and $\alpha( x + y) = \alpha (x) + \alpha(y)$.
+			\end{definition}
+		The two definitions are equivalent.
+			\begin{theorem}[Rank-nullity theorem]
+				content...
+			\end{theorem}
+		
+		\section{Eigenvalues and Eigenvectors}
+\end{document}
