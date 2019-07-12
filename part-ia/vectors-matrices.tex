@@ -2,13 +2,15 @@
 
 \begin{document}
 \chapter{Vectors and Matrices}
-%		\section{Complex Numbers}
+	\section{Complex Numbers}
+		\subsection{Complex logarithm}
+		
 	\section{Vectors}
 		\subsection{Vector Algebra in $\mathbb{R}^3$}
 			Combining two vectors
 		
 		\subsection{Vectors in $\RR^n$ and $\CC^n$}
-			Let us consider the vector in $\RR^n$, the natural generalisation of $\RR^3$.
+			Let us consider vectors in $\RR^n$, the natural generalisation of $\RR^3$.
 			\begin{definition}
 				Using the standard basis $e_1, \ldots, e_n$ of $\RR^n$, if $x = \sum_j x_j e_j$ and $y = \sum_j y_j e_j$, we write
 				\begin{equation*}
@@ -42,6 +44,15 @@
 		\end{proof}
 	
 		\subsection{Concepts in linear algebra}
+		
+		\subsection{Suffix notation}
+		
+		\subsection{Vector product and triple product}
+		
+		\subsection{Solution of linear vector equations}
+		
+		\subsection{Applications}
+		
 	\section{Matrices}
 		\begin{definition}
 			An $n \times m$ matrix is an array of numbers of the form
@@ -56,8 +67,28 @@
 			Sometimes it will be denoted by $(a_{ij})$, where $a_{ij}$ is the general element of the matrix.
 		\end{definition}
 			Notice that $i$ is the \textit{row} of the element, and $j$ is the \textit{column} of the element.
-		\subsection{Algebra of Matrices}
+			\begin{definition}
+				An $n \times n$ matrix is called a \textit{square} matrix.
+			\end{definition}
+		\subsection{Algebra of matrices}
 		
+		\subsection{Determinant and trace}
+			The trace of a square matrix is easy to find.
+			\begin{theorem}
+				The \textit{trace} of a $n \times n$ matrix $\mathbf{A}$, denoted $\tr \mathbf{A}$ is the sum of its diagonal entries, that is
+				\begin{equation*}
+					\tr \mathbf{A} = \sum_{i = 1}^{n} a_{ii.} = a_{11} + a_{22} + \cdots + a_{nn}.
+				\end{equation*}
+			\end{theorem}
+			It is evident that, for two square matrices $\mbf{A}$ and $\mbf{B}$ with same dimension,
+			\begin{equation*}
+				\tr(\mbf{A + B}) = \tr\mbf A + \tr\mbf B.
+			\end{equation*}
+			But it is not so obvious that the following holds.
+			\begin{equation*}
+				\tr(\mbf{P}^{-1}\mbf{AP}) = \tr\mbf A
+			\end{equation*}
+			for any invertible $n\times n$ matrix $\mbf P$ and any matrix $\mbf{A}$. Less so of its importance which shall be used later.
 		\subsection{Matrix as linear transformation}
 			We start with the definition of linear transformations.
 			\begin{definition}
@@ -71,6 +102,8 @@
 			\begin{theorem}[Rank-nullity theorem]
 				content...
 			\end{theorem}
+		
+		\subsection{Simultaneous linear equations}
 		
 		\section{Eigenvalues and Eigenvectors}
 \end{document}
