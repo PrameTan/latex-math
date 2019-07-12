@@ -21,12 +21,35 @@
 		\subsection{Chinese remainder theorem}
 		
 		\subsection{Wilson's theorem}
+		
 	\section{The real numbers}
 		\subsection{Least upper bounds}
 		
 		\subsection{Sequences and series}
 		
 		\subsection{Irrationality of $\sqrt{2}$ and $e$}
+		What does it mean for a number to be rational? Recalls the definition of a rational number, which says that a number $a$ is rational if it can be expressed in the form
+		\begin{equation*}
+			a = \frac{p}{q}
+		\end{equation*}
+		for relatively prime integers $p, q$ with $q \neq 0$.
+		
+		We start by the classic proof of irrationality of $\sqrt{2}$.
+		\begin{theorem}
+			$\sqrt{2}$ is irrational.
+		\end{theorem}
+		\begin{proof}
+			Suppose $\sqrt{2}$ is rational, and $\sqrt{2} = \frac{p}{q}$ with $(p, q) = 1$ and $q \neq 0$. Then $(\sqrt{2})^2 = 2 = \frac{p^2}{q^2}$, so $2q^2 = p^2$. Therefore $2 \mid p^2$; it follows that $p$ is even. But then $p = 2p_0$ for some integer $p_0$, which means that $q^2 = 2{(p_0)}^2$ and $q$ is even. But this contradicts our assumption that $p$ and $q$ are relatively prime.
+		\end{proof}
+	
+		More generally,
+		\begin{theorem}
+			$\sqrt{p}$ is irrational if $p$ is prime.
+		\end{theorem}
+		The proof of this theorem follows the same line as of the case when $p = 2$. We can extend the result to the following theorem.
+		\begin{theorem}
+			$\sqrt{\frac{p}{q}}$ is rational if and only if $p$ and $q$ are perfect squares.
+		\end{theorem}
 		
 		\subsection{Decimal expansions}
 		
