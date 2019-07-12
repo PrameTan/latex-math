@@ -7,7 +7,7 @@
 				\begin{definition}
 					A \textit{group} \index{Group} is a set $G$, together with a binary operation $\ast$ on $G$ with the following properties.
 					\begin{enumerate}
-						\item (Closure axiom) for all $g$ and $h$ in $G$, $g \ast h \in G$;
+						\item (Closure) for all $g$ and $h$ in $G$, $g \ast h \in G$;
 						\item (Associativity) for all $f, g$ and $h$ in $G$, $g \ast h \in G$, $f\ast(g\ast h) = (f \ast g) \ast h$;
 						\item (Existence of identity) there is a unique $e$ in $G$ such that for all $g$ in $G$, $g \ast e = g = e \ast g$;
 						\item (Existence of inverse) if $g \in G$ there is some $h$ in $G$ such that $g \ast h = e = h \ast g$.
@@ -126,35 +126,36 @@
 					3 & 2 & 1
 					\end{pmatrix}.
 					\end{equation*}
-				\end{example}
-			Note that
-			\begin{equation*}
-				\begin{pmatrix}
+								Note that
+					\begin{equation*}
+					\begin{pmatrix}
 					1 & 2 & 3 \\
 					1 & 3 & 2
-				\end{pmatrix}
-				\begin{pmatrix}
-				1 & 2 & 3 \\
-				2 & 1 & 3
-				\end{pmatrix}
-				= \begin{pmatrix}
-				1 & 2 & 3 \\
-				3 & 1 & 2
-				\end{pmatrix}
-				\neq
-				\begin{pmatrix}
-				1 & 2 & 3 \\
-				2 & 3 & 1
-				\end{pmatrix}
-				= 	\begin{pmatrix}
-				1 & 2 & 3 \\
-				2 & 1 & 3
-				\end{pmatrix}
-				\begin{pmatrix}
-				1 & 2 & 3 \\
-				1 & 3 & 2
-				\end{pmatrix}.
-			\end{equation*}
+					\end{pmatrix}
+					\begin{pmatrix}
+					1 & 2 & 3 \\
+					2 & 1 & 3
+					\end{pmatrix}
+					= \begin{pmatrix}
+					1 & 2 & 3 \\
+					3 & 1 & 2
+					\end{pmatrix}
+					\neq
+					\begin{pmatrix}
+					1 & 2 & 3 \\
+					2 & 3 & 1
+					\end{pmatrix}
+					= 	\begin{pmatrix}
+					1 & 2 & 3 \\
+					2 & 1 & 3
+					\end{pmatrix}
+					\begin{pmatrix}
+					1 & 2 & 3 \\
+					1 & 3 & 2
+					\end{pmatrix}.
+					\end{equation*}
+				\end{example}
+
 			Therefore $S_3$ is not abelian. More generally $S_n$ is not abelian for $n \geq 3$. We will study permutations in more details later on.
 
 	\subsection{Subgroups and homomorphisms}
@@ -199,6 +200,8 @@
 			\end{definition}
 			
 			The idea of subgroup is expanded into the notion of a \textbf{coset}, which will be explored later.
+			
+			Let's now turn to \textit{homomorphism}, as a tool to study relationship between two groups.
 		\begin{definition}
 			Let $G, G'$ be groups. A function $\phi \colon G \ra G'$ is a \textit{homomorphism} if it takes the action of $G$ to that of $G'$, namely
 			\begin{equation*}
