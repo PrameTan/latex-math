@@ -46,11 +46,65 @@
 		\begin{theorem}
 			$\sqrt{p}$ is irrational if $p$ is prime.
 		\end{theorem}
-		The proof of this theorem follows the same line as of the case when $p = 2$. We can extend the result to the following theorem.
+		\begin{proof}
+			We provide another proof using unique factorisation of integers.
+			Assume that $\sqrt{p}$ is a rational number, and that $\sqrt{p} = \frac{a}{b}$, with coprime $a, b$ and $b \neq 0$. If $b = 1$, then $p$ must divide $a^2$, then it divides $a$, which is absurd. Then there exists a prime $q$ in the factorisation of $b$ such that $q \nmid a$, or else they have a common factor.
+			
+			Now consider $2 = \frac{a^2}{b^2}$. $a^2$ is factored into the product of primes of $a$, but squared. The prime factor of $b^2$ includes $q^2$. As so the fraction $\frac{a^2}{b^2}$ cannot be reduced to an integer, contradicting $2 = \frac{a^2}{b^2}$.
+		\end{proof}
+		We can extend the result to the following theorem.
 		\begin{theorem}
 			$\sqrt{\frac{p}{q}}$ is rational if and only if $p$ and $q$ are perfect squares.
 		\end{theorem}
-		
+		Even more generally,
+		\begin{theorem}
+			If an integer $a$ is not an exact $k$-th power of another integer then $\sqrt[k]{a}$ is irrational.
+		\end{theorem}
+		We now provide a proof that $e$ is irrational, starting with the definition of $e$.
+		\begin{definition}
+			The number $e$ is defined as
+			\begin{equation*}
+				 e = \sum_{n = 0}^{^\infty}\frac{1}{n!} = \lim_{n \ra \infty}\left( 1 + \frac{1}{n}\right)^n.
+			\end{equation*}
+		\end{definition}
+		We will show later on that the two definition is indeed equal. The proof of irrationality of $e$ will use the fact that 
+		\begin{equation*}
+			e = \sum_{n = 0}^{^\infty}\frac{1}{n!} = 1 + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \cdots.
+		\end{equation*}
+		Note that $2 = 1 + 1 < e = 1 + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \cdots < 1 + \left( 1 + \frac{1}{2} + \frac{1}{2^2} + \frac{1}{2^3} + \cdots\right) = 3$, that is $e$ is bounded between 2 and 3. Now we proof the irrationality of $e$ as presented by Joseph Fourier.
+		\begin{theorem}
+			$e$ is irrational.
+		\end{theorem}
+		\begin{proof}
+			Suppose $e$ is rational and with usual condition $(a,b) = 1$, $e = \frac{a}{b}$. Define
+			\begin{equation}
+				x = b!\left(e - \sum_{n = 0}^{b} \frac{1}{n!}\right).
+			\end{equation}
+			This renders $x$ an integer, for if we substitute $e = \frac{a}{b}$,
+			\begin{equation*}
+				x = b!\left(\frac{a}{b} - \sum_{n = 0}^{b} \frac{1}{n!}\right) = a(b - 1)! - \sum_{n = 0}^{b} \frac{b!}{n!}.
+			\end{equation*}
+			For each of $0 \leq n \leq b$, $n!$ divides entirely into $b!$, so the sum is an integer.
+			
+			Notice that we are using an idea that the difference between the fast-converging series expansion of $e$ and $\sum_{n = 0}^{b} \frac{1}{n!}$ multiplied by $b!$ is still less than 1. This would give us a contradiction.
+			
+			Let's bound $x$ first by showing that it is indeed positive, since
+			\begin{equation}
+			x = b!\left(e - \sum_{n = 0}^{b} \frac{1}{n!}\right) = b!\left(\sum_{n = 0}^{\infty} \frac{1}{n!} - \sum_{n = 0}^{b} \frac{1}{n!}\right) = \sum_{n = b + 1}^{\infty} \frac{b!}{n!},
+			\end{equation}
+			and all of its terms is positive, so $x > 0$.
+			
+			And consider $\frac{b!}{n!}$. For all term $n \geq b + 1$,
+			\begin{equation*}
+				\frac{b!}{n!} = \frac{1}{(b + 1)(b + 2)\cdots(b + (n - b))} < \frac{1}{(b + 1)^{n - b}}.
+			\end{equation*}
+			The inequality is strict for $n \geq b + 2$, we now have
+			\begin{equation}
+				x = \sum_{n = b + 1}^{\infty} \frac{b!}{n!} < \sum_{n = b + 1}^{\infty} \frac{1}{(b + 1)^{n - b}} = \sum_{k = 1}^{\infty} \frac{1}{(b + 1)^{k}} = \frac{1}{b + 1}\left(\frac{1}{1 - \frac{1}{b + 1}}\right) = \frac{1}{b} < 1.
+			\end{equation}
+			A contradiction.
+		\end{proof}
+		Later on, $e$ is proven to be transcendental, i.e. $e$ is not a root of any polynomial with rational coefficient, in the 19th century by Charles Hermite. Furthermore, $e^a$ is transcendental if $a$ is rational and non-zero, using the Lindemann-Weierstrass theorem. The same theorem also show that $\pi$ is transcendental.
 		\subsection{Decimal expansions}
 		
 		\subsection{Construction of a transcendental number}
