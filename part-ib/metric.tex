@@ -4,7 +4,18 @@
 	\chapter{Metric and Topological Spaces}
 		\section{Metrics}
 			\subsection{Definition and examples}
-			
+				We extend the notion of continuity, first to $\RR^2$.
+				But let's start from the case of continuity in $\RR$. What does it mean for $f$ to be continuous at $a$? One might start form the definition that
+				\begin{equation*}
+					\forall\epsilon > 0;\quad \exists\delta > 0. \abs{f(x) - f(a)} < \epsilon \text{ for } \abs{x - a} < \delta.
+				\end{equation*}
+				That is, we can make the distance between $f(x)$ and $f(a)$ as small as we want, by choosing $x$ so that the distance $\abs{x - a}$ between $x$ and $a$ is sufficiently small. What about $\RR^2$?
+				\begin{definition}
+					A function $f \colon \RR^n \ra \RR$ is \textit{continous} at a point $a = (a_1, a_2, \ldots, a_n) \in \RR^n$, if given $\epsilon >0$ there exists $\delta > 0$ such that $\abs{f(x) - f(a)} < \epsilon$ for every $x = (x_1, x_2 \ldots, x_n)$ satisfying
+					\begin{equation*}
+						\sqrt{\sum_{i = 1}^{n} \left(x_i - a_i\right)^2} < \delta.
+					\end{equation*}
+				\end{definition}
 			\subsection{Limits and continuity}
 			
 			\subsection{Open sets and neighbourhoods}
@@ -12,9 +23,29 @@
 			\subsection{Characterising limits and continuity}
 			
 		\section{Topology}
+			\subsection{Definition}
+			
 			\subsection{Metric topologies}
 			
+			\subsection{Neighbourhoods}
+			
+			\subsection{Hausdorff spaces}
+			
+			\subsection{Homeomorphisms}
+			
+			\subsection{Topological and non-topological properties}
+			
+			\subsection{Completeness}
+			
+			\subsection{Subspace, quotient and product topologies}
+			
 		\section{Connectedness}
-		
+			\subsection{Definition}
+			
+			\subsection{Components}
+			
+			\subsection{Path-connectedness}
+			
+			
 		\section{Compactness}
 \end{document}
