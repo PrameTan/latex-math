@@ -2,7 +2,7 @@
 
 \begin{document}
 	\chapter{Groups}
-		\section{Examples of Groups}
+		\section{Examples of groups}
 			\subsection{Axioms for groups}
 				\begin{definition}
 					A \textit{group} \index{Group} is a set $G$, together with a binary operation $\ast$ on $G$ with the following properties.
@@ -203,16 +203,47 @@
 			
 			Let's now turn to \textit{homomorphism}, as a tool to study relationship between two groups.
 		\begin{definition}
-			Let $G, G'$ be groups. A function $\phi \colon G \ra G'$ is a \textit{homomorphism} if it takes the action of $G$ to that of $G'$, namely
+			Let $G, G'$ be groups. A function $\phi \colon G \ra G'$ is a \textit{homomorphism} if it takes the action of $G$ to that of $H$, namely
 			\begin{equation*}
-					\phi(gh) = \phi(g)\phi(h),
+					\phi(xy) = \phi(x)\phi(y),
 			\end{equation*}
-			for all $g, h \in G$.
+			for all $x, y \in G$.
 		\end{definition}
-			
+		\begin{definition}
+			A homomorphism $\phi$ is called an \textit{isomorphism} if it is bijective.
+		\end{definition}
+		\begin{lemma}
+			The homomorphism $\phi\colon G \ra H$ sends the identity of $G$ to that of $H$.
+		\end{lemma}
+		\begin{proof}
+			Let $x = y = e_G$. So $\phi(e_G) = \phi(e_G)\phi(e_G)$. This equation is satisfied only when $\phi(e_G) = e_{H}$.
+		\end{proof}
+		\begin{lemma}
+			$\phi(xy^{-1}) = \phi(x)\phi(y)^{-1}$.
+		\end{lemma}
+		\begin{proof}
+			This is clear from the fact that $\phi(y)\phi(xy^{-1}) = \phi(x)$.
+		\end{proof}
+		\begin{lemma}
+			$\phi(x^{-1}) = \phi(x)^{-1}$.
+		\end{lemma}
+		\begin{lemma}
+			If $\phi\colon G \ra H$ and $\theta\colon H \ra K$ are homomorphisms, then $\theta\phi\colon G \ra K$ is also a homomorphism. Similarly, if $\phi\colon G \ra H$ and $\theta\colon H \ra K$ are isomorphisms, then $\theta\phi\colon G \ra K$ is an isomorphism.
+		\end{lemma}
+		The idea of kernel, introduced for vector spaces, motivates us to find an analogy for homomorphisms between groups. As the kernel of a linear map is the set of vectors mapped to the identity elements of the image spaces, we naturally define kernel as follows.
+		\begin{definition}
+			The kernel $\ker\phi$ of a homomorphism $\phi\colon G \ra H$ is the set
+			\begin{equation*}
+				\Set{g \in G \colon \phi(g) = e_H}.
+			\end{equation*}
+		\end{definition}
+		\begin{theorem}
+			Let $\phi\colon G \ra H$. Then $\ker\phi$ is a subgroup of $G$.
+		\end{theorem}
+		This is similar to kernels of vector spaces.
 	\subsection{Symmetry groups}
 		
-	\subsection{The M\"obius group}
+	\section{The M\"obius group}
 		We first begin with the definition of M\"obius transformation.
 		\begin{definition}
 			A \textit{M\"obius transformation} is a function $f$ of a complex variable $z$ in the form
@@ -292,8 +323,52 @@
 		\end{proof}
 		The first problem is then resolved by showing that the 4-tuple $(a,b,c,d)$ determines $f$, up to non-zero multiple. The second problem will be resolved differently, by joining an extra point, which is called \textit{the point at infinity} to $\CC$. This point is denoted $\infty$.
 	
-	
-		\section{Lagrange's Theorem}
+		\begin{definition}
+			The set of complex numbers joined with the set $\Set{\infty}$ of the point at infinity is called an \textit{extended complex plane}, and is denoted $\CC_\infty$.
+		\end{definition}
+		We already have our notion of the M\"obius map approaching infinity,  since we have
+		\begin{equation*}
+			\lim_{z \ra \infty}\frac{az + b}{cz + d} = \frac{a}{c}, \quad \lim_{z \ra {-d}/{c}} \frac{az + b}{cz + d} = \infty
+		\end{equation*}
+		when $c \neq 0$. And if $c = 0$ then $\lim_{z \ra \infty} f(z) = \infty$. So we naturally use them to assign value to $f(\infty)$.
+		\begin{definition}
+			For $c \neq 0$, define $f(\infty) = a/c$ and $f(-d/c) = \infty$. If $c = 0$ then $f(\infty) = \infty$.
+		\end{definition}
+		This assignment of values is well-defined only because we have shown before that either $c\neq 0$ or $c = 0$, and if $c \neq 0$ then the value of $a/c$ and $-d/c$ is always the same for any multiple of $c$. The main result of this definition is that, all M\"obius transformation is now defined on the set $\CC_\infty$ so that the composition of any two M\"obius is defined. In fact,
+		\begin{theorem}
+			Every M\"obius map is a bijection from $\CC_\infty$ onto itself, and that they form the M\"obius group $\mathcal{M}$ with respect to composition.
+		\end{theorem}
+		\begin{theorem}
+			Every M\"obius map transformation can be expressed as the composition of at most four maps, which are
+			\begin{enumerate}
+				\item rotation and dilation of the form $z \mapsto az$,
+				\ii  translation of the form $z \mapsto z + b$; and
+				\ii \textit{complex inversion} of the form $z \mapsto 1/z$.
+			\end{enumerate}
+		\end{theorem}
+		
+		There is a connection between M\"obius maps and $2 \times 2$ complex matrices. We have seen that, if $M$ is a non-singular $2 \times 2$ matrix with complex entries, then we can find a corresponding M\"obius map $f$. Indeed this mapping, explicitly stated
+		\begin{equation*}
+			\phi\colon 
+			\begin{pmatrix}
+			a	&	b 	\\
+			c	&	d	
+			\end{pmatrix}
+			\mapsto f, \quad f(z) = \frac{az + b}{cz + d},
+		\end{equation*}
+		gives us a homomorphism between the group of $2 \times 2$ non-singular complex matrices $\mathrm{GL}(2, \CC)$ and $\mathcal{M}$.
+		\begin{theorem}
+			The mapping $\phi$ is a homomorphism from the group $\mathrm{GL}(2, \CC)$ onto the M\"obius group $\mathcal{M}$.
+		\end{theorem}
+		\begin{lemma}
+			The kernel of $\phi$ is $\Set{\lambda I \colon \lambda \in \CC}$. where $I$ is the identity matrix.
+		\end{lemma}
+		
+		\subsection{Fixed points and uniqueness}
+			
+		\subsection{Cross-ratios}
+			
+		\section{Lagrange's theorem}
 			\subsection{Cosets}
 				We have introduced the idea of subgroup in the previous section. Now we come to the idea of constructing a subset of any group $G$ from its subgroup. For example, we could define a new subset $XY$ of $G$ by
 				\begin{equation*}
