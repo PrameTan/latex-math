@@ -7,8 +7,19 @@
 		
 	\section{Vectors}
 		\subsection{Vector Algebra in $\mathbb{R}^3$}
-			Combining two vectors
-		
+			This section will review algebra of vectors in $\RR^3$. They are usually regarded as an arrow, one with \textit{dimension} and \textit{length}. Starting from two points inside the space $\RR^3$, namely $P(p_1, p_2, p_3)$ and $Q(q_1, q_2, q_3)$ we may draw a vector from $P$ to $Q$, and is expressed by
+			\begin{equation*}
+				\overrightarrow{PQ} = (q_1 - p_1, q_2 - p_2, q_3 - p_3).
+			\end{equation*}
+			Generally let $\mathbf{u} = (u_1, u_2, u_3)$. This vector can also be written as a sum of unit vectors laying on the axis. Those unit vectors are
+			\begin{equation*}
+				\mathbf{i} = (1, 0, 0),\quad \mathbf{j} = (0, 1, 0),\text{ and } \mathbf{k} = (0, 0, 1).
+			\end{equation*}
+			And $\mathbf{u} = u_1\mathbf{i} + u_2\mathbf{j} +  u_3\mathbf{k}$. We can multiply vectors by a scalar, which is a real number, by
+			\begin{equation*}
+				\mu\mathbf{u} = (\mu u_1, \mu u_2, \mu u_3).
+			\end{equation*}
+			The usual properties of vectors should be familiar, that is $\mu(\mathbf{u} + \mathbf{v}) =\mu\mathbf{u} + \mu\mathbf{v}$, $(\mu + \lambda)\mathbf{u} = \mu\mathbf{u} + \lambda\mathbf{u}$, and $(\mu\lambda)\mathbf{u} = \mu(\lambda\mathbf{u})$. 
 		\subsection{Vectors in $\RR^n$ and $\CC^n$}
 			Let us consider vectors in $\RR^n$, the natural generalisation of $\RR^3$.
 			\begin{definition}
@@ -75,7 +86,7 @@
 		\subsection{Determinant and trace}
 			The trace of a square matrix is easy to find.
 			\begin{theorem}
-				The \textit{trace} of a $n \times n$ matrix $\mathbf{A}$, denoted $\tr \mathbf{A}$ is the sum of its diagonal entries, that is
+				The \textit{trace} \index{Trace} of an $n \times n$ matrix $\mathbf{A}$, denoted $\tr \mathbf{A}$ is the sum of its diagonal entries, that is
 				\begin{equation*}
 					\tr \mathbf{A} = \sum_{i = 1}^{n} a_{ii.} = a_{11} + a_{22} + \cdots + a_{nn}.
 				\end{equation*}
@@ -89,6 +100,7 @@
 				\tr(\mbf{P}^{-1}\mbf{AP}) = \tr\mbf A
 			\end{equation*}
 			for any invertible $n\times n$ matrix $\mbf P$ and any matrix $\mbf{A}$. Less so of its importance which shall be used later.
+			
 		\subsection{Matrix as linear transformation}
 			We start with the definition of linear transformations.
 			\begin{definition}
