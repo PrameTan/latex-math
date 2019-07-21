@@ -20,6 +20,8 @@
 				\mu\mathbf{u} = (\mu u_1, \mu u_2, \mu u_3).
 			\end{equation*}
 			The usual properties of vectors should be familiar, that is $\mu(\mathbf{u} + \mathbf{v}) =\mu\mathbf{u} + \mu\mathbf{v}$, $(\mu + \lambda)\mathbf{u} = \mu\mathbf{u} + \lambda\mathbf{u}$, and $(\mu\lambda)\mathbf{u} = \mu(\lambda\mathbf{u})$. 
+			
+			
 		\subsection{Vectors in $\RR^n$ and $\CC^n$}
 			Let us consider vectors in $\RR^n$, the natural generalisation of $\RR^3$.
 			\begin{definition}
@@ -30,12 +32,11 @@
 				and $x \perp y$ when $x\cdot y = 0$.
 			\end{definition}
 		Note that $\norm x = \norm {-x}$. The distance $\norm{x - y}$ between the points $x$ and $y$ is given by the natural extension of Pythagoras' theorem, and importantly, satisfies the \textit{triangle inequality}.
-		\begin{theorem}[The triangle inequality for $\RR^n$]
-			For all $x, y, z$ in $\RR^n$,
+
 			\begin{equation}
-				\norm{x - y} \leq \norm{x - y} + \norm{y - z}.
+			\norm{x - z} \leq \norm{x - y} + \norm{y - z}.
 			\end{equation}
-		\end{theorem}
+
 		To prove this assertion, it is sufficient to show that $\abs{x \cdot y} \leq \norm x \norm y$, so that we have $\norm{x + y} \leq \norm x + \norm y$, which readily implies the triangle inequality. Thus we seek to prove
 		\begin{theorem}[the Cauchy-Schwarz inequality]
 			For all $x, y \in \RR^n$,
@@ -52,6 +53,21 @@
 				0 \leq \sum_{j = 1}^n \left(\norm x y_j - \norm y x_j\right)^2 = 2\norm x \norm y \left(\norm x \norm y - xy\right),
 			\end{equation*}
 			so $x \cdot y \leq \norm x \norm y$; similarly, put $ - x $ as $x$ and we have $- x \cdot y \leq \norm x\norm y$. Therefore $\abs{x \cdot y} \leq \norm x \norm y$. Equality holds if $\sum_{j = 1}^n \left(\norm x y_j - \norm y x_j\right)^2$ or $\sum_{j = 1}^n \left(\norm x y_j + \norm y x_j\right)^2$ is equal to zero, which implies $ \norm x y = \pm \norm y x$.
+		\end{proof}
+		Now we are sufficiently equipped with the tool to prove the triangle inequality for general $\RR^n$ space.
+		\begin{theorem}[The triangle inequality for $\RR^n$]
+			For all $x, y, z$ in $\RR^n$,
+			\begin{equation}
+			\norm{x - z} \leq \norm{x - y} + \norm{y - z}.
+			\end{equation}
+		\end{theorem}
+		\begin{proof}
+			Set $a = x - y$ and $b = y - z$. The inequality is equivalent to $\norm{a + b} \leq \norm{a} + \norm{b}$, which we seek to prove. Note that
+			\begin{align*}
+				\norm{a + b}^2 = \left(a + b\right)\cdot\left(a + b\right) & = {\norm a}^2 + {\norm b}^2 + 2 a \cdot b \\
+				& \leq {\norm a}^2 + {\norm b}^2 + 2 \norm a \norm b = \left(\norm a + \norm b\right)^2.
+			\end{align*}
+			Taking square root on both sides we arrive at $\norm{a + b} \leq \norm{a} + \norm{b}$.
 		\end{proof}
 	
 		\subsection{Concepts in linear algebra}
@@ -75,16 +91,14 @@
 				a_{n1} & a_{n2} & \ldots & a_{nm}
 				\end{pmatrix}.
 			\end{equation*}
-			Sometimes it will be denoted by $(a_{ij})$, where $a_{ij}$ is the general element of the matrix.
+			Sometimes it will be denoted by $(a_{ij})$, where $a_{ij}$ is the general element of the matrix, where $i$ is the \textit{row} and $j$ is the \textit{column} of the element.
 		\end{definition}
-			Notice that $i$ is the \textit{row} of the element, and $j$ is the \textit{column} of the element.
 			\begin{definition}
 				An $n \times n$ matrix is called a \textit{square} matrix.
 			\end{definition}
 		\subsection{Algebra of matrices}
 		
 		\subsection{Determinant and trace}
-			The trace of a square matrix is easy to find.
 			\begin{theorem}
 				The \textit{trace} \index{Trace} of an $n \times n$ matrix $\mathbf{A}$, denoted $\tr \mathbf{A}$ is the sum of its diagonal entries, that is
 				\begin{equation*}

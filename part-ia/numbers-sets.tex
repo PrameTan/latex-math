@@ -28,12 +28,18 @@
 			\begin{definition}
 				A number $p$ is \textit{prime} if its divisors are only 1 and itself. A number which is not prime is called a \textit{composite} number.
 			\end{definition}
-			
+			\begin{theorem}
+				Every number greater than 1 has a prime factor.
+			\end{theorem}
+			\begin{proof}
+				We proceed by induction. Note that 2 obviously has a prime factor 2. Suppose that every number less than $m$ has a prime factor, we need to show that $m$ also has a prime factor. If $m$ is prime then we are done. If $m$ is not prime then there exists $a, b \in\NN$ with $a \leq m$ such that $ab = m$ and $a \neq 1$. Then by the hypothesis, $a$ has a prime factor. That prime factor must also divide $m$. Thus every number greater than 1 has a prime factor.
+			\end{proof}
+			This proof of infinitude of prime is first described by Euclid.
 			\begin{theorem}
 				There are infinitely many prime numbers.
 			\end{theorem}
 			\begin{proof}
-				Suppose there are only finitely many prime numbers, denoted $p_1,\ldots, p_k$. 
+				Suppose there are only finitely many prime numbers, denoted $p_1,\ldots, p_k$. Consider the number obtained by multiplying all primes in the list, and then adding one; $p_1p_2\cdots p_k + 1$. This number is obviously greater than 1, and so it must have a prime factor $q$. It then follows that $q$ must be one of the finitely many primes in the list. But for all $p_i$ with $1 \leq i \leq k$, $p_i \nmid p_1p_2\cdots p_k + 1$. This means that $q$ is not equal to any of the prime in the list, a contradiction. 
 			\end{proof}
 		\subsection{Euclid's algorithm}
 		
@@ -94,7 +100,7 @@
 		\begin{equation*}
 			e = \sum_{n = 0}^{^\infty}\frac{1}{n!} = 1 + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \cdots.
 		\end{equation*}
-		Note that $2 = 1 + 1 < e = 1 + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \cdots < 1 + \left( 1 + \frac{1}{2} + \frac{1}{2^2} + \frac{1}{2^3} + \cdots\right) = 3$, that is $e$ is bounded between 2 and 3. Now we proof the irrationality of $e$ as presented by Joseph Fourier.
+		Note that $2 = 1 + 1 < e = 1 + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \cdots < 1 + \left( 1 + \frac{1}{2} + \frac{1}{2^2} + \frac{1}{2^3} + \cdots\right) = 3$, that is $e$ is bounded between 2 and 3. Now we present the proof of irrationality of $e$, as presented by Joseph Fourier.
 		\begin{theorem}
 			$e$ is irrational.
 		\end{theorem}
@@ -109,7 +115,7 @@
 			\end{equation*}
 			For each of $0 \leq n \leq b$, $n!$ divides entirely into $b!$, so the sum is an integer.
 			
-			Notice that we are using an idea that the difference between the fast-converging series expansion of $e$ and $\sum_{n = 0}^{b} \frac{1}{n!}$ multiplied by $b!$ is still less than 1. This would give us a contradiction.
+			Notice that we are using an idea that the difference between the fast-converging series expansion of $e$ and $\sum_{n = 0}^{b} \frac{1}{n!}$ multiplied by $b!$ is still less than 1, thus making $x$ an integer between 0 and 1. This would give us a contradiction.
 			
 			Let's bound $x$ first by showing that it is indeed positive, since
 			\begin{equation}
@@ -121,13 +127,13 @@
 			\begin{equation*}
 				\frac{b!}{n!} = \frac{1}{(b + 1)(b + 2)\cdots(b + (n - b))} < \frac{1}{(b + 1)^{n - b}}.
 			\end{equation*}
-			The inequality is strict for $n \geq b + 2$, we now have
+			The inequality is strict for $n > b + 1$, we now have
 			\begin{equation}
 				x = \sum_{n = b + 1}^{\infty} \frac{b!}{n!} < \sum_{n = b + 1}^{\infty} \frac{1}{(b + 1)^{n - b}} = \sum_{k = 1}^{\infty} \frac{1}{(b + 1)^{k}} = \frac{1}{b + 1}\left(\frac{1}{1 - \frac{1}{b + 1}}\right) = \frac{1}{b} < 1.
 			\end{equation}
 			A contradiction.
 		\end{proof}
-		Later on, $e$ is proven to be transcendental, i.e. $e$ is not a root of any polynomial with rational coefficient, in the 19th century by Charles Hermite. Furthermore, $e^a$ is transcendental if $a$ is rational and non-zero, by the result of the Lindemann-Weierstrass theorem. The same theorem also show that $\pi$ is transcendental.
+		Later in the 19th century, $e$ is proven to be transcendental, i.e. $e$ is not a root of any polynomial with rational coefficient, by Charles Hermite. Furthermore, $e^a$ is transcendental if $a$ is rational and non-zero, by the result of the Lindemann-Weierstrass theorem. The same theorem also shows that $\pi$ is transcendental.
 		
 		\subsection{Decimal expansions}
 			

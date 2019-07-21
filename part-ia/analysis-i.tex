@@ -35,8 +35,13 @@
 	\begin{proof}
 		Simply substitute $x - y$ and $y - z$ in place of $x$ and $y$, respectively.
 	\end{proof}
+
 	\section{Limit and Convergences}
+	Let's start with sequences.
 	\subsection{Series and sequences in $\mathbb{R}$ and $\mathbb{C}$}
+	\begin{definition}
+		A \textit{sequence} is an ordered list of number, with a natural number $n$ corresponding to the $n$th term in the sequence.
+	\end{definition}
 	\begin{definition}
 		A sequence $s_n$ is a \textit{null sequence} if, to every positive number $\epsilon$, there corresponds an integer $N$ such that
 		\begin{equation*}
@@ -101,20 +106,35 @@
 	\begin{theorem}
 		Suppose that $a_n$ is an increasing sequence of real numbers. If it is bounded then $a_n \ra \sup\Set{a_n \colon n \in \ZZ^+}$ as $n \ra \infty$; otherwise $a_n \ra +\infty$.
 		
-		Similarly, for any decreasing sequence $a_n$; and if it is bounded, then $a_n \ra {\inf\Set{a_n \colon n \in \ZZ^+}} $; otherwise $a_n \ra -\infty$.
+		Similarly, for any decreasing sequence $a_n$, if it is bounded, then $a_n \ra {\inf\Set{a_n \colon n \in \ZZ^+}} $; otherwise $a_n \ra -\infty$.
 	\end{theorem}
 	
 	One sequence worth considering is the sequence $a_n = r^n$. The convergence of the sequence depends on the value of $r$.
 	\begin{enumerate}
-		\item If $r = 1$ then $a_n \ra 1$, and if $r = 0$ then $a_n \ra 0$.
+		\item If $r = 1$, then $a_n \ra 1$, and if $r = 0$ then $a_n \ra 0$.
 		
-		\item If $r > 1$ then $r = 1 + k$ for some $k > 0$, so we have
+		\item If $r > 1$, then $r = 1 + k$ for some $k > 0$, so we have
 		\begin{equation*}
 		a_n = \left(1 + k\right)^n > 1 + kn
 		\end{equation*}
 		by considering the first two terms in the binomial expansion. And so $a_n \ra +\infty$.
-	\end{enumerate}
+		
+		\ii If $0 < r < 1$, then $r^{-1} = 1 + l > 1$ with $l > 0$, thus
+		\begin{equation*}
+			0 < a_n = \frac{1}{\left(1 + l\right)^n} < \frac{1}{1 + nl}.
+		\end{equation*}
+		As $n \ra \infty$, $1/(1 + nl) \ra 0$ and therefore $a_n \ra 0$.
+		
+		\ii If $-1 < r < 0$, set $s = -r$, so that $0 < s < 1$, it follows that $s^n \ra 0$ as $n \ra 0$, and therefore $a_n = (-s)^n = 0$.
+		
+		\ii If $r = -1$, then $a_n$ takes the values $-1$ and $1$ alternatively, and so it oscillates finitely.
+		
+		\ii If $r < -1$, set $s = -r$, then $s^n \ra \infty$. And so $a_n = (-s)^n$ takes increasing values alternating between negative and positive. That is to say $a_n$ oscillates infinitely.
+ 	\end{enumerate}
+	Another proof of convergence of $a_n = r^n$ when $0 < r < 1$ can be given, as follows: the sequence $r^n$ is decreasing and bounded (by 0), therefore it tends to $\inf\Set{r^n \colon n \in \ZZ^{+}}$, which is 0.
+		
 	\subsection{Sums, products and quotients}
+	We start with important theorem of sums and products of null sequence.
 	\begin{theorem}
 		If $s_n$ and $t_n$ are null sequences, so is $s_n + t_n$.
 	\end{theorem}
