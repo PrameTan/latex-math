@@ -437,9 +437,42 @@
 			\subsection{Fermat-Euler theorem}
 			
 		\section{Group actions}
-		This section studies \textbf{group actions}.
-			\subsection{Group actions}
+		This section studies group actions, which involves a "product" between a group and an arbitrary set $X$ and returns an element of $X$. We refer to this by saying that $G$ \textit{acts} on $X$. 
+		
+		A more precise formulation of the above can be given as following:
+		\begin{definition}
+			Let $X$ be any set and $G$ be any group, we say that $G$ acts on $X$ on the left by the product $\ast$, if for each pair $(g, x)$ with $g \in G, x \in X$, an element $g\ast x \in X$ is defined, such that for all $g, g' \in G$ and all $x \in X$ the following axioms hold:
+			\begin{enumerate}
+				\item $e\ast x = x$, and,
+				\item $g \ast (g' \ast x) = (g g')\ast x$.
+			\end{enumerate}
+		\end{definition}
+		An alternate formulation when $G$ acts on $X$ on the right can also be defined. Our study of group action will rely on this notion and some geometric ideas in the study. Later on we shall apply them to the study of the symmetry groups of regular solids.
 			
+			\begin{definition}
+				Suppose that $G$ acts on $X$. We say that $x$ is a \textit{fixed point} \index{Fixed point} of $g$ in $G$ if $g\ast x = x$, and the set of fixed points of $g$ is denoted by $\mathcal{F}(g)$.
+			\end{definition}
+			\begin{definition}
+				Given $x$ in $X$, the set $\Set{g \in G \colon g\ast x = x}$ of elements of $G$ that fix $x$ is called the \textit{stabilizer} \index{Stabilizer} $G_x$ of $x$.
+			\end{definition}
+			This set is indeed a group.
+			\begin{theorem}
+				The stabilizer $G_x$ is a subgroup of $G$.
+			\end{theorem}
+			\begin{definition}
+				Suppose that $G$ acts on $X$. Then the subset $\Set{g\ast x \colon g \in G}$ of $X$ is called the \textit{orbit} \index{Orbit} $O_x$ of $x$ under $G$. As we could see, it is the set of all images of $x$ varying $g$ to every elements of $G$.
+			\end{definition}
+			\begin{definition}
+				The action of $G$ on $X$ is called \textit{transitive} if for each pair $x, y$ in $X$ there exists a $g$ in $G$ such that $g\ast x = y$.
+			\end{definition}
+			\begin{lemma}
+				The group $G$ acts transitively on $X$ if and only if $O_x = X$	for one $x$ in $X$.	
+			\end{lemma}
+			Note that any two orbits of two elements of $X$ are either disjoint or equal. Thus the orbits partition $X$ into equivalence classes.
+			
+			\begin{lemma}
+				Let $x$ be a fixed element of $X$ and $G_x$ its stabilizer. Then for any elements $g, h$ of $G$, $g^{-1}h \in G_x$ if and only if $g\ast x = h \ast x$.
+			\end{lemma}
 			\subsection{Orbit-stabilizer theorem}
 			
 			\subsection{Cayley's theorem}
@@ -552,7 +585,7 @@
 					
 					Now consider the composition $\gamma_{k_1}\gamma_{k_2}\cdots\gamma_{k_m}$. For any $x \in \Set{1, \ldots, n}$, then $\gamma_{k_d}(x) = \alpha(x)$ if $x$ and $k_d$ belong to the same cycle; else $\gamma_{k_d}(x) = x$. And so $\alpha = \gamma_{k_1}\gamma_{k_2}\cdots\gamma_{k_m}$.
 				\end{proof}
-				The proof above use the idea of constructing the sequence $k, \alpha k, \alpha^2 (k), \ldots ,\alpha^{u-1} (k)$ of elements of a group. This will be studied further in the notion of \textbf{orbits}. This decomposition is also unique up to the order of $y_{k_i}$, and it is called the \textit{standard representation} of $\alpha$.
+				The proof above use the idea of constructing the sequence $k, \alpha k, \alpha^2 (k), \ldots ,\alpha^{u-1} (k)$ of elements of a group, which is indeed the \textbf{orbits}. This decomposition is also unique up to the order of $y_{k_i}$, and it is called the \textit{standard representation} of $\alpha$.
 				
 				Let's try to decompose a permutation using the theorem. Consider
 				\begin{equation*}
