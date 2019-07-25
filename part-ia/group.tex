@@ -62,7 +62,7 @@
 									& = ((\alpha\beta)\gamma)(x).
 						\end{aligned}
 						\end{equation}
-						Thus the permutations are commutative under composition.
+						Thus the permutations are associative under composition.
 						
 						\ii The identity permutation $\iota (x) = x$ is the identity of $\mathcal{P}(X)$, since $\alpha\iota(x) = \alpha(x) = \iota\alpha(x)$.
 						
@@ -242,7 +242,9 @@
 		\end{theorem}
 		This result is similar to those of kernels of vector spaces.
 	\subsection{Symmetry groups}
-		
+	
+	\subsection{Conjugation}
+	
 	\section{The M\"obius group}
 		We first begin with the definition of M\"obius transformation.
 		\begin{definition}
@@ -334,7 +336,7 @@
 		\begin{definition}
 			For $c \neq 0$, define $f(\infty) = a/c$ and $f(-d/c) = \infty$. If $c = 0$ then $f(\infty) = \infty$.
 		\end{definition}
-		This assignment of values is well-defined only because we have shown before that either $c\neq 0$ or $c = 0$, and if $c \neq 0$ then the value of $a/c$ and $-d/c$ is always the same for any multiple of $c$. The main result of this definition is that, all M\"obius transformation is now defined on the set $\CC_\infty$ so that the composition of any two M\"obius is defined. In fact,
+		This assignment of values is well-defined only because we have shown before that either $c\neq 0$ or $c = 0$, and if $c \neq 0$ then the value of $a/c$ and $-d/c$ is always the same for any multiple of $c$. The main result of this definition is that, all M\"obius transformations are now defined on the set $\CC_\infty$ so that the composition of any two M\"obius maps is defined. In fact,
 		\begin{theorem}
 			Every M\"obius map is a bijection from $\CC_\infty$ onto itself, and that they form the M\"obius group $\mathcal{M}$ with respect to composition.
 		\end{theorem}
@@ -367,7 +369,12 @@
 		\subsection{Fixed points and uniqueness}
 			
 		\subsection{Cross-ratios}
-			
+		
+		\subsection{Preservation of circles}
+		
+		\subsection{Fixed points of M\"obius maps and iteration}
+		
+		
 		\section{Lagrange's theorem}
 			\subsection{Cosets}
 				We have introduced the idea of subgroup in the previous section. Now we come to the idea of constructing a subset of any group $G$ from its subgroup. For example, we could define a new subset $XY$ of $G$ by
@@ -428,14 +435,65 @@
 				If the order of a group is prime, then it is cyclic.
 			\end{corollary}
 				\begin{proof}
-					Let $G$ be a group with prime order $p$. Suppose $x \in G$, $x \neq e$ and $H = \left\langle x \right\rangle $ be its subgroup. Then $\abs{H} \mid \abs{G}$. But $\abs{G}$ is prime, therefore $\abs{H}$ must either be 1 or $p$. But $H$ contains both $x$ and $e$, therefore $\abs{H} = p$, that is $H = G = \left\langle x \right\rangle $ as claimed.
+					Let $G$ be a group with prime order $p$. Suppose $x \in G$, $x \neq e$ and $H = \left\langle x \right\rangle $ be its subgroup. Then $\abs{H} \mid \abs{G}$. Since $\abs{G}$ is prime, $\abs{H}$ must either be 1 or $p$. But $H$ contains both $x$ and $e$, therefore $\abs{H} = p$, that is $H = G = \left\langle x \right\rangle $ as claimed.
 				\end{proof}
 			\subsection{Group of small order (up to 8)}
 				Now we use the result from Lagrange's theorem to classify all groups with order less than 8.
 			\subsection{Quaternions}
 			
 			\subsection{Fermat-Euler theorem}
-			
+			In this section we shall show some applications of group theory in the study of arithmetic, notably to prove Fermat's theorem and Euler's theorem using tools from group theory. Recall the definition of $\ZZ_n$,
+			\begin{equation*}
+				\ZZ_n = \Set{0, 1, \ldots, n - 1},
+			\end{equation*}
+			that is, the set of all remainders after any integer is divided by $n$. We are interested in the group structure of $\ZZ_n$ with respect to multiplication. A group axiom states that all elements of $\ZZ_n$ must have an inverse, that is, there exists an element $x$ of $\ZZ_n$ such that
+			\begin{equation*}
+				ax \equiv 1	\pmod n
+			\end{equation*} 
+			for all $a \in \ZZ_n$. But not all integer $n$ satisfied this. 
+			\begin{example}
+				Consider $2 \in \ZZ_8$. It does not has an inverse in $\ZZ_8$. Similary 4 and 6 does not has an inverse. But $3\cdot 3 \equiv 1 \pmod 8$ and $5 \cdot 5 \equiv 1 \pmod 8$, and so they has an inverse mod 8.
+			\end{example} 
+			Such observation leads to an important result for general set $\ZZ_n$.
+			\begin{theorem}
+				An element $a$ of a set $\ZZ_n$ has an inverse if and only if it is coprime to $n$.
+			\end{theorem}
+			\begin{proof}
+				Suppose that $a$ has an inverse $a'$ in $\ZZ_n$, then it satisfies the equation
+				\begin{equation*}
+					aa' \equiv 1 \pmod {n} .
+				\end{equation*}
+				Therefore there exists an integer $k$ such that $aa' - 1 = kn$. It follows from B\'ezout's lemma that $(a, n) = 1$.
+				
+				Conversely, let $(a, n) = 1$, then there exists an integer $k, l$ such that $ak + nl = 1$. Thus $ak \equiv 1 \pmod n$, and so $a$ has an inverse in $\ZZ_n$.
+			\end{proof}
+			Consequently, the set of all integers coprime to $n$ forms a group under multiplication. We shall denote them as $\ZZ/n\ZZ$, using the quotient notation. This motivates the following definition.
+			\begin{definition}
+				The numbers of positive integers up to $n$, and are also coprime to $n$ is equal to $\phi(n)$. This is called \textit{Euler's totient function}.
+			\end{definition}
+			\begin{corollary}
+				The order of the group $\ZZ/n\ZZ$ is equal to $\phi(n)$.
+			\end{corollary}
+			\begin{lemma}
+				For any prime $p$, we have $\phi(p) = p - 1$.
+			\end{lemma}
+			Now we can prove Euler's theorem using Lagrange's theorem.
+			\begin{theorem}[Euler's theorem]
+				If $a$ and $n$ are coprime then
+				\begin{equation*}
+					a^{\phi(n)} \equiv 1 \pmod n.
+				\end{equation*}
+			\end{theorem}
+			\begin{proof}
+				We have seen that the set $\ZZ/n\ZZ$ forms a group and that $\abs{\ZZ/n\ZZ} = \phi(n)$. Let $d$ be the order of $a \in \ZZ/n\ZZ$. Now the set $\Set{1, a, a^2, \ldots, a^{d-1}}$ is a subgroup of $\ZZ/n\ZZ$. By Lagrange's theorem, $d \mid \phi(n)$. It then follows that $a^{\phi(n)} = a^{dk} \equiv 1 \pmod n$, as claimed.
+			\end{proof}
+			The Fermat's theorem is a direct result of Euler's theorem.
+			\begin{corollary}[Fermat's theorem]
+				For any prime $p$ and any integer $a$,
+				\begin{equation*}
+					a^p \equiv a \pmod p.
+				\end{equation*}
+			\end{corollary}
 		\section{Group actions}
 		This section studies group actions, which involves a "product" between a group and an arbitrary set $X$ and returns an element of $X$. We refer to this by saying that $G$ \textit{acts} on $X$. 
 		
@@ -469,10 +527,7 @@
 				The group $G$ acts transitively on $X$ if and only if $O_x = X$	for one $x$ in $X$.	
 			\end{lemma}
 			Note that any two orbits of two elements of $X$ are either disjoint or equal. Thus the orbits partition $X$ into equivalence classes.
-			
-			\begin{lemma}
-				Let $x$ be a fixed element of $X$ and $G_x$ its stabilizer. Then for any elements $g, h$ of $G$, $g^{-1}h \in G_x$ if and only if $g\ast x = h \ast x$.
-			\end{lemma}
+
 			\subsection{Orbit-stabilizer theorem}
 			
 			\subsection{Cayley's theorem}
