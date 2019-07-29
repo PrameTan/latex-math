@@ -203,7 +203,7 @@
 			
 			Let's now turn to \textit{homomorphism}, as a tool to study relationship between two groups.
 		\begin{definition}
-			Let $G, G'$ be groups. A function $\phi \colon G \ra G'$ is a \textit{homomorphism} if it takes the action of $G$ to that of $H$, namely
+			Let $G, H$ be groups. A function $\phi \colon G \ra G'$ is a \textit{homomorphism} if it takes the action of $G$ to that of $H$, namely
 			\begin{equation*}
 					\phi(xy) = \phi(x)\phi(y),
 			\end{equation*}
@@ -242,8 +242,7 @@
 		\end{theorem}
 		This result is similar to those of kernels of vector spaces.
 	\subsection{Symmetry groups}
-	
-	\subsection{Conjugation}
+
 	
 	\section{The M\"obius group}
 		We first begin with the definition of M\"obius transformation.
@@ -372,6 +371,8 @@
 		
 		\subsection{Preservation of circles}
 		
+		\subsection{Conjugation}
+		
 		\subsection{Fixed points of M\"obius maps and iteration}
 		
 		
@@ -437,6 +438,7 @@
 				\begin{proof}
 					Let $G$ be a group with prime order $p$. Suppose $x \in G$, $x \neq e$ and $H = \left\langle x \right\rangle $ be its subgroup. Then $\abs{H} \mid \abs{G}$. Since $\abs{G}$ is prime, $\abs{H}$ must either be 1 or $p$. But $H$ contains both $x$ and $e$, therefore $\abs{H} = p$, that is $H = G = \left\langle x \right\rangle $ as claimed.
 				\end{proof}
+			
 			\subsection{Group of small order (up to 8)}
 				Now we use the result from Lagrange's theorem to classify all groups with order less than 8.
 			\subsection{Quaternions}
@@ -452,8 +454,8 @@
 			\end{equation*} 
 			for all $a \in \ZZ_n$. But not all integer $n$ satisfied this. 
 			\begin{example}
-				Consider $2 \in \ZZ_8$. It does not has an inverse in $\ZZ_8$. Similary 4 and 6 does not has an inverse. But $3\cdot 3 \equiv 1 \pmod 8$ and $5 \cdot 5 \equiv 1 \pmod 8$, and so they has an inverse mod 8.
-			\end{example} 
+				Consider $2 \in \ZZ_8$. It does not has an inverse in $\ZZ_8$. Similary 4 and 6 all do not has an inverse. But $3\cdot 3 \equiv 1 \pmod 8$ and $5 \cdot 5 \equiv 1 \pmod 8$, and so they each have inverses mod 8.
+			\end{example}  
 			Such observation leads to an important result for general set $\ZZ_n$.
 			\begin{theorem}
 				An element $a$ of a set $\ZZ_n$ has an inverse if and only if it is coprime to $n$.
@@ -529,11 +531,81 @@
 			Note that any two orbits of two elements of $X$ are either disjoint or equal. Thus the orbits partition $X$ into equivalence classes.
 
 			\subsection{Orbit-stabilizer theorem}
-			
+			The most important result in the section is a variant of Lagrange's theorem.
+			\begin{theorem}[Orbit-stabilizer theorem]
+				If a finite group $G$ acts on a set $X$, then for any $x \in X$ the order of $G$ is given by
+				\begin{equation*}
+				\abs G = \abs {O_x} \abs{G_x},
+				\end{equation*}
+			where $O_x$ is the orbit of $x$ under $G$ and $G_x$ is the stabilizer of $x$.
+			\end{theorem}
+			We present two proofs of the theorem, illustrating the power of cosets in group theory.
+			\begin{proof}[1st Proof]
+				In this proof we let $G$ acts on the left of $X$, the case when $G$ acts on the right can be argued similarly. We find, from Lagrange's theorem, that $\abs{G}/\abs{G_x}$ is the number of distinct left cosets of $G_x$ in $G$. It remain to show that, indeed, $\abs{O_x}$ is equal to $\abs{G}/\abs{G_x}$, by finding a bijection between the two sets.
+				
+				Let $g$ be any element of $G$, and define $\theta(gG_x) = g\ast x$. Thus $\theta$ is surjective over $O_x$ by definition of $O_x$. Now if $\theta(gG_x) = \theta(hG_x)$, then $g\ast x = h \ast x$ which implies $g^{-1}h \in G_x$, that is $g^{-1}h G_x = G_x$, and so $gG_x = hG_x$. Thus $\theta$ is injective, and this proves the theorem.
+			\end{proof}
+			\begin{proof}[2nd Proof]
+				Take any $x$ in $X$ and let the orbit $O_x$ of $x$ be $\Set{g_1 \ast x, \ldots, g_r \ast x}$, with all of the $g_i \ast x$ are distinct. Consider the set $g_iG_x$, the left coset of $G_x$ with respect to $g_i$. We will show that the set $g_iG_x$ and $g_j G_x$ is disjoint for $i \neq j$, and that $G$ can be decomposed into the union of left cosets of $G_x$ with respect to the elements of $O_x$.
+				
+				Suppose $g_iG_x$ and $g_jG_x$ share at least one element, i.e. $g_i G_x \cap g_j G_x \neq \emptyset$, therefore $g_i h_i = g_j h_j$ for some $h_i, h_j \in G_x$. But then
+				\begin{equation*}
+				\begin{aligned}
+					(g_i h_i)\ast x & = (g_j h_j)\ast x \\
+					g_i \ast (h_i \ast x) & = g_j \ast (h_j \ast x) \\
+					g_i \ast x & = g_j \ast x,
+				\end{aligned}
+				\end{equation*}
+				implying $i = j$. Now let $g$ be any element of $G$, we need to find $g_i$ such that $g \in g_i G_x$. Let $g\ast x = y$, then $y$ is in the orbit of $x$, and so there is one $g_i$ such that $g_i \ast x = g \ast x = y$. But then we have $(g^{-1}_i g) \ast x = x$, i.e. $g^{-1}_i g \in G_x$, which implies $ g_i (g^{-1}_i g) = g \in g_i G_x$, as claimed. 
+				
+				Thus we can write $G$ as union of the left cosets of $G_x$ as $G = g_1 G_x \cup \cdots \cup g_r G_x$, this gives
+				\begin{equation*}
+					\abs G = \abs {g_1 G_x} + \cdots + \abs {g_r G_x}.
+				\end{equation*}
+				The map $h \mapsto g_i h$ is obviously a bijection from $G_x$ to $g_i G_x$, and so $\abs{g_i G_x} = \abs{G_x}$. Finally we get
+				\begin{equation*}
+					\abs{G} = r\abs{G_x} = \abs{O_x}\abs{G_x},
+				\end{equation*}
+				as needed.
+			\end{proof}
+			The above proof gives an alluding idea for the following theorem, which shows that the map $g \ast x = y$ can be written in terms of $g$ and a map that either fixes $x$ or $y$.
+			\begin{theorem}
+				Suppose that $G$ acts on $X$ and that $g \ast x = y$, where $x, y \in X$ and $g \in G$. Then
+				\begin{equation*}
+					g G_x = \Set{h \in G \colon h\ast x = y} = G_y g.
+				\end{equation*}
+			\end{theorem}
+		
+			The following theorem is an important result of orbit-stabilizer theorem in combinatorics.
+			\begin{theorem}[Burnside's lemma] \index{Burnside's lemma}
+				Let $G$ be a finite group acting on a finite set $X$. Then there are $N$ orbits, where
+				\begin{equation*}
+					N = \frac{1}{\abs{G}}\sum_{g\in G} \abs{\mathcal{F}(g)} = \frac{1}{\abs{G}}\sum_{x \in X}\abs{G_x}.
+				\end{equation*}
+				In particular, $N$ is the averge number of fixed points that an element of $G$ has.
+			\end{theorem}
 			\subsection{Cayley's theorem}
-			
+				In this section we prove the result by Cayley, which show that, even abstract group is indeed not so abstract. 
+				\begin{theorem}[Cayley's theorem] \index{Cayley's theorem}
+					Every finite group is isomorphic to a subgroup of a symmetric group
+				\end{theorem}
+				\begin{proof}
+					Let $g$ be any element of a group $G$, and define the map $\lambda_g \colon G \ra G$ by the rule $\lambda_g(a) = ga$, for all $a \in G$. The map is surjective; take any element of $h$ we have $g^{-1}h\in G$ and so $\lambda_g(g^{-1}h) = h$. It is also injective; let $\lambda_g(a) = \lambda_g(b)$, then $ga = gb$ and so $a = b$. This means that $\lambda_n$ is bijective and thus a permutation of $G$.	But also the set of all $\lambda_g$, ranging $g$ to all elements of $G$, themselves form a group, as the group axiom holds for $\lambda_g$ as it holds for $G$. 
+					
+					Define $\lambda \colon G \ra \mathcal P(G)$ by $\lambda(g) = \lambda_g$. It is easy to see that $\lambda$ is a homomorphism; for $g, h \in G$ we have 
+					\begin{equation*}
+						\lambda_{gh}(a) = (gh)a = g(ha) = \lambda_{g}(ha) = \lambda_g \lambda_h a,
+					\end{equation*}
+					as this holds for all $a \in G$, in general $\lambda_{gh} = \lambda_g \lambda_h$. Thus $\lambda \colon G \ra \mathcal{P}(G)$ is a homomorphism.
+					
+					Finally consider the image $\Img \lambda$ of $G$ under $\lambda$. It is a subgroup of $\mathcal{P}(G)$, precisely since for $\lambda_{g}, \lambda_h \in \Img \lambda$, we have $\lambda_g \lambda^{-1}_h = \lambda_g\lambda_{h^{-1}} = \lambda_{gh^{-1}} \in \Img \lambda$. By definition of $\Img \lambda$, $\lambda$ is an isomorphism from $G$ to a subgroup $\Img \lambda$ of a symmetric group $\mathcal{P}(G)$. 
+				\end{proof}
+				This theorem holds even for infinite group, with extra care for cardinality of $G$. Another proof of Cayley's theorem will be given using isomorphism theorems.
+				\begin{theorem}
+					Any subgroup $H$ of a group $G$ is the stabilizer of some group action. 
+				\end{theorem}
 			\subsection{Conjugacy classes}
-			
+				In the previous section, we let $G$ acts on itself in order to prove Cayley's theorem.
 			\subsection{Cauchy's theorem}
 			
 		\section{Quotient groups}
@@ -543,6 +615,7 @@
 			
 			\subsection{The isomorphism theorem}
 			
+			%Another proof of Cayley's theorem
 		\section{Matrix groups}
 			\subsection{The general and special linear groups}
 			
@@ -587,7 +660,7 @@
 				\begin{proof}
 					Let the two permutations be $\alpha$ and $\beta$. For any $k \in \Set{1, \ldots, n}$, suppose that $\alpha$ fixes k, the case for $\beta$ can be argued similarly. 
 					
-					Let $\beta(k) = k'$. Then $\alpha\beta (k) = \alpha(k')$ and $\beta\alpha(k) = \beta(k) = k'$. We shall prove that indeed $\alpha(k') = k$.
+					Let $\beta(k) = k'$. Then $\alpha\beta (k) = \alpha(k')$ and $\beta\alpha(k) = \beta(k) = k'$. We shall prove that indeed $\alpha(k') = k$. Consider the following two possibility of $\beta(k')$.
 					
 					If $\beta(k') \neq k'$ then we are done by the premise. So suppose $\beta(k') = k'$, but then $\beta(k') = k' = \beta(k)$. This implies $k = k'$ and so $\alpha(k') = \alpha(k) = k'$ as required.
 				\end{proof}
@@ -624,15 +697,15 @@
 				\begin{definition}
 					A \textit{transposition} is a cycle of length 2.
 				\end{definition}
-				The integers $n_1, n_2, \ldots, n_q$ need not be in an increasing order. By inspection, $\alpha = (1\,5)(2\, 3\,4) = (2\,3\,4)(1\,5)$. We will show that any permutation can be written in this manner, as the compositions of cycles.
+				The integers $n_1, n_2, \ldots, n_q$ need not be in an increasing order. By inspection, in the above example we have $\alpha = (1\,5)(2\, 3\,4) = (2\,3\,4)(1\,5)$. We will show that any permutation can be written in this manner, as the compositions of cycles.
 				
 				\begin{theorem}
 					Any permutation $\alpha$ in the symmetric group $S_n$ can be written as a composition of disjoint cycles.
 				\end{theorem}
 				\begin{proof}
-					This will employ the similar strategy used above. For any integer $k \in \Set{1, \ldots, n}$, we apply $\alpha$ repeatedly, and so we have the sequence $k, \alpha (k), \alpha^2 (k), \ldots$, and so some elements of this sequence must coincide. Let the two such elements be $\alpha^p(k) = \alpha^q (k)$, with $p < q$. Thus $\alpha^{q - p}(k) = k$. Now there exists a smallest positive number $u$ such that $\alpha^u (k) = k$.
+					This will employ the similar strategy used above. For any integer $k \in \Set{1, \ldots, n}$, we apply $\alpha$ repeatedly, and so we have the sequence $k, \alpha (k), \alpha^2 (k), \ldots$, and so some elements of this sequence must coincide. Let the two such elements be $\alpha^p(k) = \alpha^q (k)$, with $p < q$. Thus $\alpha^{q - p}(k) = k$. Now there exists a smallest positive number $u$ such that $\alpha^u (k) = k$. The sequence  $k, \alpha (k), \alpha^2 (k), \ldots, \alpha^{u-1}(k)$ must be distinct. 
 					
-					The sequence  $k, \alpha (k), \alpha^2 (k), \ldots, \alpha^{u-1}(k)$ must be distinct. Construct the cycle 
+					Construct the cycle 
 					\begin{equation*}
 					\gamma_k = (k \:\, \alpha (k) \: \alpha^2 (k) \: \cdots \: \alpha^{u-1}(k)).
 					\end{equation*} 
