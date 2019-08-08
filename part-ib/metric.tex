@@ -10,12 +10,33 @@
 			\forall\epsilon > 0;\quad \exists\delta > 0. \abs{f(x) - f(a)} < \epsilon \text{ for } \abs{x - a} < \delta.
 		\end{equation*}
 		That is, we can make the distance between $f(x)$ and $f(a)$ as small as we want, by choosing $x$ so that the distance $\abs{x - a}$ between $x$ and $a$ is sufficiently small. What about $\RR^2$?
+		
+		Since we know that, for two points $(x,y)$ and $(a,b)$ in $\RR^2$ the distance between them is equal to $\sqrt{(x - a)^2 + (y - b)^2}$, and because both $f(x,y)$ and $f(a,b)$ are real numbers, it follows that $\abs{f(x, y) - f(a, b)}$ exists and denote the distance between $f(x,y)$ and $f(a,b)$. We then have the condition for continuity of $f$ in $\RR^2$, that is, we can make the distance between $f(x,y)$ and $f(a,b)$ as small as needed, for any $(x,y)$ such that its distance from $(a, b)$ is small enough.
+		
+		In formal $(\epsilon, \delta)$-definition, $f\colon\RR^2\to\RR$ is continuous at $(a,b)$ if given $\epsilon > 0$ we can find $\delta>0$ such that $\abs{f(x, y) - f(a, b)} < \epsilon $ for all $(x,y) \in \RR^2$ satisfying $\sqrt{(x - a)^2 + (y - b)^2} < \delta$.
+		
+		Thus in order to generalised the idea of continuity to $\RR^n$, we need to extend the idea of \textit{distance} between two points. We see that in case $n = 3$ the distance between two points is $\sqrt{(x_1 - a_1)^2 + (x_2 - a_2)^2 + (x_3 - a_3)^2}$, as for the case when $n = 2$. The case when $n = 1$ is given by $\abs{x - a} = \sqrt{(x - a)^2}$. The following definition for the distance between $(x_1, \ldots, x_n)$ and $(a_1,\ldots,a_n)$ is then natural:
+		\begin{equation*}
+			\sqrt{\sum_{i = 1}^n (x_i - a_i)^2}.
+		\end{equation*}
+		This is called the \textit{Euclidean distance}.
 		\begin{definition}
 			A function $f \colon \RR^n \ra \RR$ is \textit{continous} at a point $a = (a_1, a_2, \ldots, a_n) \in \RR^n$, if given $\epsilon >0$ there exists $\delta > 0$ such that $\abs{f(x) - f(a)} < \epsilon$ for every $x = (x_1, x_2 \ldots, x_n)$ satisfying
 			\begin{equation*}
 				\sqrt{\sum_{i = 1}^{n} \left(x_i - a_i\right)^2} < \delta.
 			\end{equation*}
 		\end{definition}
+	
+		In another direction to generalisation, the idea of extending continuity for any map $f\colon X \to Y$ is plausible, given that the notion of distance between two elements of $X$ is adequate, as is the case for two elements of $Y$. Such notion would then be a map $d\colon X \times X \to \RR$. This is called the \textit{metric} $d$. We take some properties, taken from our familiar Euclidean distance, and chosen as axioms for general metric space.
+		\begin{definition}
+			A metric space consists of a non-empty set $X$ with a function, called a metric, $d\colon X \times X \to \RR$, such that the following properties hold:
+			\begin{enumerate}
+				\item for all $x, y \in X$, $d(x, y) \geq 0$; and $d(x, y) = 0$ if and only if $x = y$,
+				\item for all $x, y \in X$, $d(x,y) = d(y, x)$, and,
+				\item for all $x, y, z\in X$, $d(x,y) \leq d(x,z) + d(z, y)$.
+			\end{enumerate}
+		\end{definition}
+		
 	\subsection{Limits and continuity}
 	
 	\subsection{Open sets and neighbourhoods}
