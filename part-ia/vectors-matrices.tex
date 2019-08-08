@@ -71,7 +71,7 @@
 		\end{proof}
 	
 		\subsection{Concepts in linear algebra}
-		
+			
 		\subsection{Suffix notation}
 		
 		\subsection{Vector product and triple product}
@@ -91,7 +91,7 @@
 				a_{n1} & a_{n2} & \ldots & a_{nm}
 				\end{pmatrix}.
 			\end{equation*}
-			Sometimes it will be denoted by $(a_{ij})$, where $a_{ij}$ is the general element of the matrix, where $i$ is the \textit{row} and $j$ is the \textit{column} of the element.
+			Sometimes it will be denoted by $(a_{ij})$, where $a_{ij}$ is the general element of the matrix, the index $i$ stands for the \textit{row} and $j$ for the \textit{column} of the element.
 		\end{definition}
 			\begin{definition}
 				An $n \times n$ matrix is called a \textit{square} matrix.
@@ -105,15 +105,19 @@
 					\tr \mathbf{A} = \sum_{i = 1}^{n} a_{ii.} = a_{11} + a_{22} + \cdots + a_{nn}.
 				\end{equation*}
 			\end{theorem}
-			It is evident that, for two square matrices $\mbf{A}$ and $\mbf{B}$ with same dimension,
-			\begin{equation*}
+			\begin{theorem}
+				It is evident that, for two square matrices $\mbf{A}$ and $\mbf{B}$ with same dimension,
+				\begin{equation*}
 				\tr(\mbf{A + B}) = \tr\mbf A + \tr\mbf B.
-			\end{equation*}
-			But it is not so obvious that the following holds.
-			\begin{equation*}
-				\tr(\mbf{P}^{-1}\mbf{AP}) = \tr\mbf A
-			\end{equation*}
-			for any invertible $n\times n$ matrix $\mbf P$ and any matrix $\mbf{A}$. Less so of its importance which shall be used later.
+				\end{equation*}
+			\end{theorem}
+		
+%			But it is not so obvious that the following holds.
+%			\begin{equation*}
+%				\tr(\mbf{P}^{-1}\mbf{AP}) = \tr\mbf A
+%			\end{equation*}
+%			for any invertible $n\times n$ matrix $\mbf P$ and any matrix $\mbf{A}$. Less so of its importance which shall be used later.
+			
 			
 		\subsection{Matrix as linear transformation}
 			We start with the definition of linear transformations.
