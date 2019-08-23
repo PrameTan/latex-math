@@ -11,7 +11,7 @@
 		\end{equation*}
 		That is, we can make the distance between $f(x)$ and $f(a)$ as small as we want, by choosing $x$ so that the distance $\abs{x - a}$ between $x$ and $a$ is sufficiently small. What about $\RR^2$?
 		
-		Since we know that, for two points $(x,y)$ and $(a,b)$ in $\RR^2$ the distance between them is equal to $\sqrt{(x - a)^2 + (y - b)^2}$, and because both $f(x,y)$ and $f(a,b)$ are real numbers, it follows that $\abs{f(x, y) - f(a, b)}$ exists and denote the distance between $f(x,y)$ and $f(a,b)$. We then have the condition for continuity of $f$ in $\RR^2$, that is, we can make the distance between $f(x,y)$ and $f(a,b)$ as small as needed, for any $(x,y)$ such that its distance from $(a, b)$ is small enough.
+		Since we know that, for two points $(x,y)$ and $(a,b)$ in $\RR^2$ the distance between them is equal to $\sqrt{(x - a)^2 + (y - b)^2}$, and because both $f(x,y)$ and $f(a,b)$ are real numbers, it follows that $\abs{f(x, y) - f(a, b)}$ exists and is the distance between $f(x,y)$ and $f(a,b)$. We then have the condition for continuity of $f$ in $\RR^2$, that is, we can make the distance between $f(x,y)$ and $f(a,b)$ as small as needed, for any $(x,y)$ such that its distance from $(a, b)$ is small enough.
 		
 		In formal $(\epsilon, \delta)$-definition, $f\colon\RR^2\to\RR$ is continuous at $(a,b)$ if given $\epsilon > 0$ we can find $\delta>0$ such that $\abs{f(x, y) - f(a, b)} < \epsilon $ for all $(x,y) \in \RR^2$ satisfying $\sqrt{(x - a)^2 + (y - b)^2} < \delta$.
 		
@@ -36,9 +36,55 @@
 				\item for all $x, y, z\in X$, $d(x,y) \leq d(x,z) + d(z, y)$.
 			\end{enumerate}
 		\end{definition}
-		
+		\begin{example}
+			The Euclidean $n$-space $(\RR^n, d_2)$ where for two elements $x = (x_1,\ldots,x_n), y = (y_1,\ldots, y_n)$,
+			\begin{equation*}
+				d_2(x, y) = \sqrt{\sum_{i = 1}^n (x_i - y_i)^2}.
+			\end{equation*}
+			One can verify that $d_2$ satisfies all three axiom. The first two is easy to see, but for the third axiom one need the Cauchy-Schwarz inequality.
+		\end{example}
+		\begin{example}
+			Let $X$ be any non-empty subset and define $d$ by
+			\begin{equation*}d(x,y) =
+			\begin{cases}
+			1, & x = y, \\
+			0, & x \neq y.
+			\end{cases}
+			\end{equation*}
+			This is called \textit{the discrete metric}.
+		\end{example}
+		\begin{definition}
+			Suppose that $(X, d)$ is a metric space and that $A$ is a non-empty subset of $X$. Let $d_A \colon A \times A \to \RR$ be the restriction of $d$ to $A\times A$. The metric space axioms holds for $d_A$ also. The metric space $(A, d_A)$ is called a metric subspace of $(X, d)$ and $d_A$ is called the metric on $A$ induced by $d$.
+		\end{definition}
+			If we have metric spaces $(X,d),\,(X',d')$, and a map $f\colon X \to X'$ then for any subset $A \subset X$ and $a \in A$ we can talk about continuity of $f|A$ at $a$.
+		\begin{example}
+			Consider $f\colon\RR\to\RR$ given by
+			\begin{equation*}
+				f(x) = \begin{cases}
+					0, & x \in \QQ,\\
+					1, & x \notin \QQ.
+				\end{cases}
+			\end{equation*}
+			Note that $f|\QQ \colon \QQ \to \RR$ is constant and also continuous, whereas $f$ is not continuous at any point.
+		\end{example}
+		The two following examples are metrics in number theory and group theory.
+		\begin{example}
+			Let $p$ be a fixed prime number, and define $d\colon \ZZ\times\ZZ \to \RR$ by $d(m,m) = 0$, and for distinct $m, n$ let $d(m,n) = 1/r$, where $p^{r - 1}$ is the highest power of $p$ which divides $m - n$.
+		\end{example}
+		\begin{example}
+			Suppose $G$ is a finitely generated group and $\mathcal{A}$ is a generating set for $G$. Let $F(\mathcal{A})$ be the free group on $\mathcal{A}$, and let $p \colon F(\mathcal{A})\to G$ be the natural map. The word metric $d_\mathcal{A}$ on $G$ associated to $\mathcal{A}$ is defined as follows: for $g_1, g_2 \in G$ let $d_\mathcal{A}(g_1, g_2)$ be the length of the shortest word in $p^{-1}(g^{-1}_1g_2)$.
+		\end{example}
 	\subsection{Limits and continuity}
-	
+		In the previous section we define a metric, an extension of distance to any set, in order to generalise our idea of continuity. We now propose a definition of continuity, suitable for any set. 
+		\begin{definition}
+			Suppose that $(X, d_X)$ and $(Y, d_Y)$ are metric spaces and let $f \colon X \to Y$ be a map.
+			\begin{enumerate}
+				\item We say $f$ is continuous at $x_0 \in X$ if given $\epsilon > 0$, there exists $\delta > 0$ such that $d_Y(f(x), f(x_0)) < \epsilon$ whenever $d_X(x, x_0) < \delta$.
+				\item We say $f$ is continuous if $f$ is continuous at every $x \in X$.
+			\end{enumerate}
+		\end{definition}
+		We might say that $f$ is $(d_X, d_Y)$-continuous to emphasise on the metrics $d_X$ and $d_Y$.
+		
 	\subsection{Open sets and neighbourhoods}
 	
 	\subsection{Characterising limits and continuity}
