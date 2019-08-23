@@ -1,13 +1,54 @@
 \documentclass[main.tex]{subfiles}
 
 \begin{document}
-	\chapter{Complex Analysis}
-		\section{Analytic Functions}
+\chapter{Complex Analysis}
+	\section{Analytic Functions}
+	\subsection{Complex differentiation}
+	We first start with the basic definition of limit for complex functions.
+	\begin{definition}
+		The function $f$ is said to have the limit $A$ as $x$ tends to $a$,
+		\begin{equation*}
+			\lim_{x\to a} f(x) = A,
+		\end{equation*}
+		if and only if the following is true:
 		
-		\section{Contour Integration and Cauchy's Theorem}
+		For every $\epsilon > 0$ there exists a real number $\delta > 0$ with the property that $\abs{f(x) - A} < \epsilon$ for all values of $X$ such that $\abs{x - a} < \delta$ and $x \neq a$.
+	\end{definition}
+	Note that the definition is the same to those of limit of a real function. This is possible since the absolute function admits both real and complex numbers. The well-known results concerning the limit of a sum, a product and a quotient of limits is preserved.
+	
+	Note that we also have the following properties:
+	\begin{enumerate}
+		\item $\lim_{x \to a} \overline{f(x)} = \overline{A}$.
+		\item $\lim_{x \to a} \Re f(x) = \Re A$.
+		\item $\lim_{x \to a} \Im f(x) = \Im A$.
+	\end{enumerate}
+	\begin{definition}
+		The function $f$ is said to be continuous if $\lim_{x \to a} f(x) = f(a)$.
+	\end{definition}
+	\begin{definition}
+		A complex-valued function $f$ defined on an \textit{open} subset $G$ of $\CC$ is differentiable at $z\in G$ if
+		\begin{equation*}
+			\lim_{h\to 0} \frac{f(z + h) - f(z)}{h}
+		\end{equation*}
+		exists. When the limit does exist it is denoted by $f'(z)$.
+	\end{definition}
+
+	 Let us consider when $f$ is a real function, that is $f(z)$ is real for all value of $z$. Then the quotient
+	 \begin{equation*}
+		 \frac{f(z + h) - f(z)}{h}
+	 \end{equation*}
+	is real if $h$ is real; and if $h = ia$ is purely imaginary, then
+	\begin{equation*}
+	\frac{f(z + ia) - f(z)}{ia}
+	\end{equation*}
+	is imaginary. It follows that $f'(z) = 0$ for all $z$ in the domain. Thus a real function of a complex variable must either has the derivative zero, else the derivative does not exist.
+	
+	\subsection{Conformal mappings}
+	
+	\section{Contour Integration and Cauchy's Theorem}
 		
-		\section{Expansions and Singularities}
+	\section{Expansions and Singularities}
 		
-		\section{The Residue Theorem}
+	\section{The Residue Theorem}
 				
 \end{document}
