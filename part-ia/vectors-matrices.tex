@@ -71,7 +71,33 @@
 		\end{proof}
 	
 		\subsection{Concepts in linear algebra}
-			
+			We shall begin with a concept of a basis.
+			\begin{definition}
+				\index{Basis}The set of vectors $v_1, \ldots, v_n$ of vectors in a vector space $V$ is called a \textit{basis} of $V$ if, for every $v$ in $V$, there exists unique scalars $\lambda_j$ such that $\sum_{j = 1}^{n}\lambda_j v_j = v$.
+			\end{definition}
+			Note that the scalars must exists, and are unique for any $v$. The following theorem follows readily.
+			\begin{theorem}
+				For any vector space $V$, if $v_1, \ldots, v_n$ and $w_1, \ldots w_m$ both form the bases of $V$, then $n = m$.
+			\end{theorem}
+			The above theorem allows us to meaningfully assign \textit{dimension} to non-trivial vector spaces $V$, which is the number of elements in any basis of $V$, if it is finite. This is called the dimension of $V$.
+			\begin{definition}
+				\index{Dimension}Let $V$ be a vector space. We say that $V$ is a \textit{finite dimensional} vector space, or $\dim V$ is finite, if the basis of $V$ is finite. Then we take $\dim V$ as the number of elements of the basis of $V$. If $V = \Set{0}$ we put $\dim V = 0$. If the basis of $V$ is infinite, we say that $V$ is infinite dimensional.
+			\end{definition}
+			The following definition captures the two essential properties of basis.
+			\begin{definition}
+				\index{Span}Let $S = \Set{v_1, \ldots, v_k}$ be a finite set of vectors in $V$. The set $\Span (S)$ is the set of all linear combination of elements of $S$. If $\Span (S) = V$, we say that $S$ \textit{spans} $V$, or $S$ \textit{generates} $V$.
+			\end{definition}
+			\begin{definition}
+				The set $S = \Set{v_1, \ldots, v_k}$ is \textit{linearly independent} if, for all scalars $\lambda_j, \mu_j$,
+				\begin{equation*}
+					\sum_j \lambda_j v_j = \sum_j \mu_j v_j \text{ implies } \lambda_j = \mu_j \text{ for all $j$.}
+				\end{equation*}
+				Otherwise we say that $S$ is \textit{linearly dependent}.
+			\end{definition}
+			\begin{theorem}
+				The set $S$ forms a basis of $V$ if and only if it spans $V$ and is linearly independent.
+			\end{theorem}
+		
 		\subsection{Suffix notation}
 		
 		\subsection{Vector product and triple product}
@@ -129,11 +155,12 @@
 			If $\alpha$ is linear we say that it is a \textit{linear transformation}, or a \textit{linear map}, if for all scalars $\lambda$ and all vectors $u$ and $v$, $\alpha(\lambda x) = \lambda\alpha(x)$ and $\alpha( x + y) = \alpha (x) + \alpha(y)$.
 			\end{definition}
 		The two definitions are equivalent.
-			\begin{theorem}[Rank-nullity theorem]
-				content...
-			\end{theorem}
+%			\begin{theorem}[Rank-nullity theorem]
+%				content...
+%			\end{theorem}
 		
 		\subsection{Simultaneous linear equations}
 		
 		\section{Eigenvalues and Eigenvectors}
+		
 \end{document}
