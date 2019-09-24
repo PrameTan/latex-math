@@ -592,11 +592,11 @@
 				\begin{proof}
 					Let $g$ be any element of a group $G$, and define the map $\lambda_g \colon G \ra G$ by the rule $\lambda_g(a) = ga$, for all $a \in G$. The map is surjective; take any element of $h$ we have $g^{-1}h\in G$ and so $\lambda_g(g^{-1}h) = h$. It is also injective; let $\lambda_g(a) = \lambda_g(b)$, then $ga = gb$ and so $a = b$. This means that $\lambda_n$ is bijective and thus a permutation of $G$.	But also the set of all $\lambda_g$, ranging $g$ to all elements of $G$, themselves form a group, as the group axiom holds for $\lambda_g$ as it holds for $G$. 
 					
-					Define $\lambda \colon G \ra \mathcal P(G)$ by $\lambda(g) = \lambda_g$. It is easy to see that $\lambda$ is a homomorphism; for $g, h \in G$ we have 
+					Define the map $\lambda \colon G \ra \mathcal P(G)$ from $G$ to the set of permutations of $G$, by $\lambda(g) = \lambda_g$. It is easy to see that $\lambda$ is a homomorphism; for $g, h \in G$ we have 
 					\begin{equation*}
 						\lambda_{gh}(a) = (gh)a = g(ha) = \lambda_{g}(ha) = \lambda_g \lambda_h a,
 					\end{equation*}
-					as this holds for all $a \in G$, in general $\lambda_{gh} = \lambda_g \lambda_h$. Thus $\lambda \colon G \ra \mathcal{P}(G)$ is a homomorphism.
+					this shows that $\lambda_{gh} = \lambda_g \lambda_h$, as it holds for all $a \in G$. Thus $\lambda \colon G \ra \mathcal{P}(G)$ is a homomorphism.
 					
 					Finally consider the image $\Img \lambda$ of $G$ under $\lambda$. It is a subgroup of $\mathcal{P}(G)$, precisely since for $\lambda_{g}, \lambda_h \in \Img \lambda$, we have $\lambda_g \lambda^{-1}_h = \lambda_g\lambda_{h^{-1}} = \lambda_{gh^{-1}} \in \Img \lambda$. By definition of $\Img \lambda$, $\lambda$ is an isomorphism from $G$ to a subgroup $\Img \lambda$ of a symmetric group $\mathcal{P}(G)$. 
 				\end{proof}
@@ -607,7 +607,7 @@
 			\subsection{Conjugacy classes}
 				In the previous section, we let $G$ acts on itself in order to prove Cayley's theorem.
 			\subsection{Cauchy's theorem}
-			
+				
 		\section{Quotient groups}
 			\subsection{Normal subgroups}
 			
@@ -625,9 +625,9 @@
 			
 		\section{Permutations}
 			\subsection{Permutations, Cycles and Transpositions}
-				We have given the definition of permutations before. More importantly, we have show that, generally, $S_n$ is not abelian, but some elements of $S_n$ is abelian.
+				We have given the definition of permutations before. More importantly, we have show that, generally, $S_n$ is not abelian, but some elements of $S_n$ are.
 				\begin{example}
-					Let $\alpha, \beta \in S_6$, and define
+					Let $\alpha, \beta \in S_6$, with
 					\begin{equation*}
 						\alpha =
 						\begin{pmatrix}
