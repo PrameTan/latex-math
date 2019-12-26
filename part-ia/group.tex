@@ -676,7 +676,7 @@
 				3 & 1
 				\end{pmatrix}
 				\end{equation*}
-				interchanges 1 and 3, and fixes 2. This notation is still too cumbersome for large $n$, this drives us to find a new notation. Let us start by noticing that, if we repeatedly apply any permutation $\alpha$, any elements in $\Set{1, 2, \ldots, n}$ must eventually return. For example, let
+				interchanges 1 and 3, and fixes 2. This notation is still too cumbersome for large $n$, this drives us to find a new notation. Let us start by noticing that, if we repeatedly apply any permutation $\alpha$ to any elements in $\Set{1, 2, \ldots, n}$, it must eventually reappear after some finite repetitions. For example, let
 				\begin{equation*}
 				\alpha = \begin{pmatrix}
 				1 & 2 & 3 & 4 & 5\\
@@ -703,13 +703,13 @@
 					Any permutation $\alpha$ in the symmetric group $S_n$ can be written as a composition of disjoint cycles.
 				\end{theorem}
 				\begin{proof}
-					This will employ the similar strategy used above. For any integer $k \in \Set{1, \ldots, n}$, we apply $\alpha$ repeatedly, and so we have the sequence $k, \alpha (k), \alpha^2 (k), \ldots$, and so some elements of this sequence must coincide. Let the two such elements be $\alpha^p(k) = \alpha^q (k)$, with $p < q$. Thus $\alpha^{q - p}(k) = k$. Now there exists a smallest positive number $u$ such that $\alpha^u (k) = k$. The sequence  $k, \alpha (k), \alpha^2 (k), \ldots, \alpha^{u-1}(k)$ must be distinct. 
+					The proof employs a similar strategy used above. For any integer $k \in \Set{1, \ldots, n}$, we apply $\alpha$ repeatedly, and so we have the sequence $k, \alpha (k), \alpha^2 (k), \ldots$; some elements of this sequence must coincide. Let the two such elements be $\alpha^p(k) = \alpha^q (k)$, with $p < q$. Thus $\alpha^{q - p}(k) = k$. Now there exists a smallest positive number $u$ such that $\alpha^u (k) = k$. The sequence  $k, \alpha (k), \alpha^2 (k), \ldots, \alpha^{u-1}(k)$ must therefore be distinct. 
 					
-					Construct the cycle 
+					Now we construct the cycle 
 					\begin{equation*}
 					\gamma_k = (k \:\, \alpha (k) \: \alpha^2 (k) \: \cdots \: \alpha^{u-1}(k)).
 					\end{equation*} 
-					Now, two cycles are either disjoint or identical. For if $y = \alpha^{d} (x)$ for some integer $d$, then $\gamma_x = \gamma_y$, and we say that $x$ and $y$ belong to the same cycle. Continue doing this for all elements of $\Set{1, \ldots, n}$, we will have a collection of cycles $\Set{\gamma_{k_1}, \gamma_{k_2}, \ldots, \gamma_{k_m}}$, all of them are pairwise disjoint.
+					Any two cycles constructed this way are either disjoint or identical, for if $y = \alpha^{d} (x)$ for some integer $d$, then $\gamma_x = \gamma_y$, and we see that $x$ and $y$ belong to the same cycle. Continue doing this for all elements of $\Set{1, \ldots, n}$, we will have a collection of cycles $\Set{\gamma_{k_1}, \gamma_{k_2}, \ldots, \gamma_{k_m}}$, all of them are pairwise disjoint.
 					
 					Now consider the composition $\gamma_{k_1}\gamma_{k_2}\cdots\gamma_{k_m}$. For any $x \in \Set{1, \ldots, n}$, then $\gamma_{k_d}(x) = \alpha(x)$ if $x$ and $k_d$ belong to the same cycle; else $\gamma_{k_d}(x) = x$. And so $\alpha = \gamma_{k_1}\gamma_{k_2}\cdots\gamma_{k_m}$.
 				\end{proof}
