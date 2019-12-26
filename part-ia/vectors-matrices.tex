@@ -83,20 +83,29 @@
 			\begin{definition}
 				\index{Dimension}Let $V$ be a vector space. We say that $V$ is a \textit{finite dimensional} vector space, or $\dim V$ is finite, if the basis of $V$ is finite. Then we take $\dim V$ as the number of elements of the basis of $V$. If $V = \Set{0}$ we put $\dim V = 0$. If the basis of $V$ is infinite, we say that $V$ is infinite dimensional.
 			\end{definition}
-			The following definition captures the two essential properties of basis.
+			The following definition captures two essential properties of a basis.
 			\begin{definition}
 				\index{Span}Let $S = \Set{v_1, \ldots, v_k}$ be a finite set of vectors in $V$. The set $\Span (S)$ is the set of all linear combination of elements of $S$. If $\Span (S) = V$, we say that $S$ \textit{spans} $V$, or $S$ \textit{generates} $V$.
 			\end{definition}
 			\begin{definition}
-				The set $S = \Set{v_1, \ldots, v_k}$ is \textit{linearly independent} if, for all scalars $\lambda_j, \mu_j$,
+				\index{Linearly independent}The set $S = \Set{v_1, \ldots, v_k}$ is \textit{linearly independent} if, for all scalars $\lambda_j, \mu_j$,
 				\begin{equation*}
 					\sum_j \lambda_j v_j = \sum_j \mu_j v_j \text{ implies } \lambda_j = \mu_j \text{ for all $j$.}
 				\end{equation*}
 				Otherwise we say that $S$ is \textit{linearly dependent}.
 			\end{definition}
+			An equivalence definition of linear independence and be given as follows:
+			\begin{definition}
+				The set $S = \Set{v_1, \ldots, v_k}$ is \textit{linearly independent} if, whenever we have
+				\begin{equation*}
+					\lambda_1 v_1 + \lambda_2 v_2 + \cdots + \lambda_k v_k = 0,
+				\end{equation*}
+				then $\lambda_1 = \lambda_2 = \cdots = \lambda_k = 0$.
+			\end{definition}
 			\begin{theorem}
 				The set $S$ forms a basis of $V$ if and only if it spans $V$ and is linearly independent.
 			\end{theorem}
+		
 		
 		\subsection{Suffix notation}
 		
