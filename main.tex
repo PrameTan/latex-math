@@ -80,11 +80,11 @@
 \newcommand{\mbf}[1]{\mathbf{#1}}
 
 \theoremstyle{definition}
-\newtheorem{definition}{Definition}[section]
-\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{example}{Example}[chapter]
 \newtheorem{theorem}{Theorem}[chapter]
-\newtheorem{lemma}{Lemma}[section]
-\newtheorem{corollary}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
 %\newtheorem{problem}{โจทย์ข้อที่}
 
 \theoremstyle{remark}
@@ -97,6 +97,8 @@
 	\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{%
 	\markright{\thesection\ #1}{}}		
+
+\renewcommand\thesection{\arabic{section}}
 
 \providecommand\gi{}
 % can be useful to refer to this outside \Set
@@ -170,8 +172,8 @@
 		\subfile{part-ia/analysis-i}
 		\subfile{part-ia/probability}
 		\subfile{part-ia/vector-calculus}
-		\subfile{part-ia/fundamental-phy}
-		\subfile{part-ia/dynamics-relativity}
+%		\subfile{part-ia/fundamental-phy}
+%		\subfile{part-ia/dynamics-relativity}
 		
 	\part{Part IB}
 		\subfile{part-ib/analysis-topology}
