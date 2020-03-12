@@ -17,11 +17,85 @@
 	\section{Metric spaces}
 	
 	\section{Topological spaces}
-	
+		Let's start with the definition of topological spaces. We take the open set definition of topological spaces here.
+		\begin{definition}
+			A \textit{topological space} $T = (X, \tau)$ consists of a non-empty set $X$ with a family $\tau$ of subset of $X$ such that.
+			\begin{itemize}
+				\item [(T1)] $X, \emptyset \in \tau$,
+				\item [(T2)] the intersection of any two sets of $\tau$ is itself in $\tau$, and
+				\item [(T3)] the union of any collection of sets in $\tau$ is in $\tau$.
+			\end{itemize}
+		\end{definition}
+		The family $\tau$ is called a \textit{topology} for $X$, and the members of $\tau$ are called the \textit{open set} of $T$. Elements of $X$ are called \textit{points in the space} $T$. We also say `$U \in \tau$' to be `$U$ is open in T'. Later on we shall interchangeably use $X$ and $T$. For example, the `topological space $X$', `points of $X$', etc.
+		
+		\begin{theorem}
+			A subset $U$ of a topological space $X$ is open in $X$ if and only if for every $x \in U$ there is an open subset $U_x$ of $X$ such that $x \in U_x \subseteq U$.
+		\end{theorem}
+		\begin{proof}
+			If $U$ is open in $X$, for each $x \in U$, let $U_x = U$. Then the conditions hold.
+			
+			Conversely, if for every $x \in U$ there is an open subset $U_x$ of $X$ such that $x \in U_x \subseteq U$. We shall show that
+			\begin{equation*}
+				U = \bigcup_{x \in U} U_x.
+			\end{equation*}
+			Suppose $x \in U$, then $x \in U_x \subseteq \bigcup_{x \in U} U_x$. Now consider when $x \in \bigcup_{x \in U} U_x$, then $x \in U_{x_0}$ for some $x_0$, and we have $x \in U_{x_0} \subseteq U$ from the hypothesis.
+			
+			Since $U$ is a union of sets open in $X$, it follows that $U$ is open in $X$.
+		\end{proof}
+		\subsection{Metric spaces as topological spaces}
+		It is easy to construct a topological space given a metric space, since the definition of a topological space is, in fact, stemmed from metric spaces. Here we show how.
+		\begin{example}
+			Given a metric space $(X, d)$, we can construct a topological space $(X, \tau_d)$, where $\tau_d$ is exactly the family of all $d$-open subsets of $X$.
+			
+			We call such topological space created from a metric space \textit{metrisable}. The space $(X, \tau_d)$ \textit{underlies} the metric space $(X, d)$ and $\tau_d$ is the topology \textit{induced} by the metric $d$
+		\end{example}
+		Different metrics can give rise to the same topology.
+		\subsection{Further examples}
+		\begin{example}
+			Consider the family $\tau = \Set{\emptyset, X}$, for any non-empty set $X$. It is trivial to see that $\tau$ forms a topology of $X$, called \textit{indiscrete topology}.
+		\end{example}
+			There is also a topology constructed from all possible subset of $X$, or more precisely:
+		\begin{example}
+			The family $\tau$ consists of all subset of $X$ is a topology. This is called \textit{discrete topology}.
+		\end{example}
+		Direct verification of the axioms should be rather easy.
+		\begin{definition}
+			Given two topologies $\tau_1, \tau_2$ on the same set, we say that $\tau_1$ is \textit{coarser} than $\tau_2$ if $\tau_1 \subseteq \tau_2$. The topology $\tau_2$ is \textit{finer} than $\tau_1$.
+		\end{definition}
+		\begin{example}
+			The \textit{Sierpinski space} $\mathbb{S}$ consists of two points $\Set{0, 1}$ with the topology $\Set{\emptyset, \Set{1}, \Set{0,1}}$. It is finer than the indiscrete topology $\Set{\emptyset, \Set{0, 1}}$, but courser than the discrete topology $\Set{\emptyset, \Set{0}, \Set{1}, \Set{0,1}}$.
+		\end{example}
+		Let's see the final example of a topology.
+		\begin{example}
+			Let $X$ be a non-empty set. The \textit{co-finite} topology on $X$ consists of the empty set and every subset $U$ of $X$ such that $X \setminus U$ is finite.
+		\end{example}
+		\begin{remark}
+			The co-finite topology of a finite set $X$ is the discrete topology.
+		\end{remark}
+		\subsection{Concepts in topological spaces}
+		We introduce the idea of closeness, closure, interior, neighbourhood, etc. borrowed from those of a metric space.
+		\begin{definition}
+			Let $(X, \tau)$ be a topological space. A subset $V$ of $X$ is said to be \textit{closed} in $X$ if $X\setminus V$ is open in $X$.
+		\end{definition}
+		\begin{theorem}
+			Let $X$ be a topological space. Then
+			\begin{itemize}
+				\item [(C1)] $X, \emptyset$ are closed in $X$;
+				\item [(C2)] if $V_1, V_2$ are closed in $X$ then $V_1 \cup V_2$ is closed in $X$; and
+				\item [(C3)] if $V_i$ is closed in $X$ for all $i \in I$ then $\cap_{i \in I} V_i$ is closed in $X$.
+			\end{itemize}
+		\end{theorem}
+		This is one of the possible definition of a topological space, in terms of closed sets.
 	\section{Connectedness}
 	
 	\section{Compactness}
-	
+		We shall define compactness by first introducing the idea of covers.
+	\begin{definition}
+		Suppose $X$ is a set and $A \subseteq X$. A family $\Set{U_i \colon i \in I}$ of subsets of $X$ is called a \textit{cover} \index{Cover} for $A$ if
+		\begin{equation*}
+		A \subseteq\bigcup_{i \in I} U_i.
+		\end{equation*}
+	\end{definition}
 	\section{Differentiation from $\RR^m$ to $\RR^n$}
 	
 \end{document}
