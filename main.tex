@@ -23,7 +23,7 @@
 
 \usepackage{imakeidx}
 \makeindex[title=Index]
-%\usepackage[T1]{fontenc}
+\usepackage[T1]{fontenc}
 %\XeTeXlinebreaklocale "th"
 %\XeTeXlinebreakskip = 0pt plus 0pt   %
 %\sloppy
@@ -32,21 +32,7 @@
 %\setmainfont{TeX Gyre Termes}	
 %\setsansfont{TeX Gyre Heros}
 %\setmonofont{TeX Gyre Cursor}
-
-
-%\newfontfamily{\thaifont}[Scale=MatchUppercase,Mapping=tex-text]{TH Sarabun New}
-%\newenvironment{thailang}
-%{\thaifont}
-%{}
-%\usepackage[Latin,Thai]{ucharclasses}
-%\setTransitionTo{Thai}{\begin{thailang}}
-%	\setTransitionFrom{Thai}{\end{thailang}}
-%\usepackage{setspace}
-%\onehalfspacing
-%\usepackage{polyglossia}
-%\setdefaultlanguage{english}
-%\setotherlanguage{thai}
-%\newlength{\mylength}
+%\setmathfont{Latin Modern Math}
 
 \usepackage[top = 1.2in, bottom = 1in, left=1 in, right = 1in]{geometry}
 
@@ -88,7 +74,7 @@
 %\newtheorem{problem}{โจทย์ข้อที่}
 
 \theoremstyle{remark}
-%\newtheorem*{remark}{ข้อสังเกต}
+\newtheorem*{remark}{Remark}
 \newtheorem*{note}{Note}
 
 \pagestyle{fancy}%
@@ -147,7 +133,7 @@
 
 \title{\textbf{Mathematics}}
 \author{P. Tansuntorn}
-\date{Last updated \today}
+\date{Last updated \today.}
 \begin{document}
 
 	\frontmatter
@@ -177,7 +163,7 @@
 		
 	\part{Part IB}
 		\subfile{part-ib/analysis-topology}
-		\subfile{part-ib/metric}
+%		\subfile{part-ib/metric}
 		\subfile{part-ib/variation}
 		\subfile{part-ib/linear-algebra}
 		\subfile{part-ib/groups-rings-modules}
@@ -206,14 +192,14 @@
 		\subfile{part-ii/prob-measure}
 	
 	\part{Part III}
+		\subfile{part-iii/algebra}
 		\subfile{part-iii/set_theory}
 		\subfile{part-iii/category}
 		\subfile{part-iii/model_theory}
 		\subfile{part-iii/modular-form}
-	\backmatter
-		\printindex
 		
-%		\begin{equation*}
-%			(9)^{2558} = (10 - 1)^{2558} = \binom{2558}{0}10^{2558} - \binom{2558}{1}10^{2557}\cdot 1 + \binom{2558}{2}{10}^{2557}\cdot 1^2 - \cdots - \binom{2558}{2557}5\cdot 1^{2557} + \binom{2558}{2558}1^{2558} \\
+	
+	\backmatter
+	\printindex
 \end{document}
 		
