@@ -4,11 +4,13 @@
 \usepackage{amsthm, amssymb, esint}
 \usepackage{tabu}
 
+
+
 \setlength{\parindent}{0.5in}
 \usepackage{multicol}
 \setlength{\columnsep}{1cm}
 
-\usepackage{color}   %May be necessary if you want to color links
+\usepackage[dvipsnames]{xcolor}   %May be necessary if you want to color links
 \definecolor{maroon}{rgb}{0.5,0,0}
 \usepackage{hyperref}
 \hypersetup{
@@ -16,6 +18,8 @@
 	linktoc=all,     %set to all if you want both sections and subsections linked
 	linkcolor=maroon,  %choose some color if you want links to stand out
 }
+
+\usepackage[framemethod=TikZ]{mdframed}
 
 \usepackage{fancyhdr}
 
@@ -33,6 +37,7 @@
 %\setsansfont{TeX Gyre Heros}
 %\setmonofont{TeX Gyre Cursor}
 %\setmathfont{Latin Modern Math}
+
 
 \usepackage[top = 1.2in, bottom = 1in, left=1 in, right = 1in]{geometry}
 
@@ -134,6 +139,12 @@
 \title{\textbf{Mathematics}}
 \author{P. Tansuntorn}
 \date{Last updated \today.}
+
+\usepackage{tikz-cd}
+\tikzcdset{every label/.append style = {font = \small}}
+
+\surroundwithmdframed[backgroundcolor=RoyalBlue!15,hidealllines=true,innertopmargin=1pt,innerbottommargin=10pt,roundcorner=10pt,nobreak=true]{theorem}
+\surroundwithmdframed[backgroundcolor=LimeGreen!20,innertopmargin=1pt,innerbottommargin=10pt,roundcorner=10pt,nobreak=true,hidealllines=true]{definition}
 \begin{document}
 
 	\frontmatter
