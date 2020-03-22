@@ -14,18 +14,47 @@
 			Rings are abstraction of systems with addition and multiplication. The prototype of rings are the set $\ZZ$ of integers.
 			
 			We define the general notion of ring in a similar way. We say that a set $R$ with two operations, addition and multiplication, denoted $x + y$ and $x \cdot y$, respectively.
-			We write $x \cdot y$ as $xy$ for comprehensiveness.
+			\begin{definition}
+				A set $R$, together with two binary operations $+$ and $\cdot$, is a \textit{ring} if it satisfies all of the following properties 
+				\begin{itemize}
+					\item [(A1)] $a, b \in R$ implies $a + b \in \RR$,
+					\item [(A2)] $a + b = b + a$ for all $a, b\in R$,
+					\item [(A3)] $(a + b) + c = a + (b + c)$ for all $a, b, c \in  R$,
+					\item [(A4)] there exists an element, denoted $0$ such that $a + 0 = a$ for all $a \in R$,
+					\item [(A5)] for each $a \in R$, there exists some element $b \in R$ such that $a + b = 0$,
+					\item [(M1)] $a, b \in R$ implies that $a \cdot b \in R$
+					\item [(M2)] $a \cdot (b \cdot c) = (a \cdot b) \cdot c$ for all $a, b, c\in R$
+					\item [(D)] $a\cdot(b + c) = a\cdot b + a\dot c$ and $(b + c)\cdot a = b\cdot a + c \cdot a$ for $a, b, c\in R$
+				\end{itemize}
+			\end{definition}
+			We write $x \cdot y$ as $xy$ for comprehensiveness. There is another formulation of the definition of a ring.
 			\begin{definition}
 				A set $R$ is a ring if the following properties are satisfied:
 				\begin{enumerate}
 					\item $R$ forms an abelian group under addition.
 					\item $R$ forms a monoid under multiplication.
-					\item The distributive laws hold true, i.e.
-					\begin{equation*}
-						x(y + z) = xy + xz, (y + z)x = yx + zx.
-					\end{equation*}
+					\item The distributive laws hold true.
 				\end{enumerate}
 			\end{definition}
+			Note that both definition requires multiplication to be associative. Of course, non-associative ring exists, but we shall not confer with them now.
+			
+			Furthermore, even if our prototype is $\ZZ$, there are few properties of $\ZZ$ missing from the definition. For example, we do not impose that there exists an element $1 \in R$ so that $a \cdot 1 = 1 \cdot a = a$ for every $a \in R$. Such ring is called \textit{ring with unit}.
+			
+			You might see that elements of a ring do not need to commute under multiplication. But for such special occasion, i.e. $a\cdot b = b \cdot a$ for $a, b\in R$, they are called \textit{commutative ring}.
+			
+			Lastly, it is not true in general that, if $ab = 0$ then $a = 0$ or $b = 0$. The ring with the above property is called a \textit{domain}.
+			\begin{definition}
+				A commutative ring $R$ is an \textit{integral domain}\index{integral domain} if $ab = 0$ implies $a = 0$ or $b = 0$.
+			\end{definition}
+			
+			\begin{definition}
+				A ring $R$ is called a division ring if for every $a \neq =0$ there is an element $b \in R$ such that $ab = ba = 1$. Later we shall denote $b$ by $a^{-1}$.
+			\end{definition}
+		
+		\begin{definition}
+			A ring $R$ is said to be a field if it is a commutative division ring.
+		\end{definition}
+			Direct verification should show that $\QQ, \RR$ and $\CC$ are fields.
 			\subsection{Ideals}
 			
 			\subsection{Fields}
