@@ -41,6 +41,8 @@
 	\subsection{Series and sequences in $\mathbb{R}$ and $\mathbb{C}$}
 	\begin{definition}
 		A \textit{sequence} is an ordered list of number, with a natural number $n$ corresponding to the $n$th term in the sequence.
+		
+		Alternatively, a sequence is a function from $\NN$ to a particular set, namely $\RR$ or $\CC$.
 	\end{definition}
 	\begin{definition}
 		A sequence $s_n$ is a \textit{null sequence} if, to every positive number $\epsilon$, there corresponds an integer $N$ such that
@@ -80,7 +82,7 @@
 		If $a_n \ra s$ as $n \ra \infty$ and $a_n \ra l$ as $n \ra \infty$, then $s = l$.
 	\end{theorem}
 	\begin{proof}
-		We will prove this theorem by contradiction. Suppose $s \neq l$. Let $\epsilon = \abs{s - l}/3 > 0$. There exists $n_0$ such that $\abs{a_n - s} < \epsilon$ for $n \geq n_0$, and there exists $m_0$ such that $\abs{a_n - l} < \epsilon$ for $n \geq m_0$. Let $N = \max(n_0 , m_0)$. Then if $n \geq N$,
+		We will prove this theorem by contradiction. Suppose $s \neq l$. Let $\epsilon = \abs{s - l}/3 > 0$. There exists $n_0$ such that $\abs{a_n - s} < \epsilon$ for $n \geq n_0$, and there exists $m_0$ such that $\abs{a_n - l} < \epsilon$ for $n \geq m_0$. Let $N = \max\Set{n_0 , m_0}$. Then if $n \geq N$,
 		\begin{equation*}
 		\abs{l - s} \leq \abs{a_n - l} + \abs{a_n - s} < 2\epsilon = 2\abs{l - s}/3,
 		\end{equation*}
@@ -102,11 +104,20 @@
 		\end{equation*}
 		Then for all $n \geq n_0$ $\abs{a_{n}} \leq \abs{a_{n} - l} + \abs{l} < 1 + \abs{l}$. Clearly, $\abs{a_n} \leq M$ and we are set.
 	\end{proof}
+
 	Note that the converse of the theorem might not be true; if a sequence is bounded, then it \textit{might not} tends to a limit. Consider the sequence $a_n = \cos n\pi$. It is bounded, but $a_n$ does not tend to a limit.
+	
 	\begin{theorem}
-		Suppose that $a_n$ is an increasing sequence of real numbers. If it is bounded then $a_n \ra \sup\Set{a_n \colon n \in \ZZ^+}$ as $n \ra \infty$; otherwise $a_n \ra +\infty$.
+		Suppose that $a_n$ is an increasing sequence of real numbers. If it is bounded then 
+		\begin{equation*}
+			a_n \ra \sup\Set{a_n \colon n \in \ZZ^+}
+		\end{equation*}
+		as $n \ra \infty$; otherwise $a_n \ra +\infty$.
 		
-		Similarly, for any decreasing sequence $a_n$, if it is bounded, then $a_n \ra {\inf\Set{a_n \colon n \in \ZZ^+}} $; otherwise $a_n \ra -\infty$.
+		Similarly, for any decreasing sequence $a_n$, if it is bounded, then 
+		\begin{equation*}
+			a_n \ra {\inf\Set{a_n \colon n \in \ZZ^+}};
+		\end{equation*} otherwise $a_n \ra -\infty$.
 	\end{theorem}
 	
 	One sequence worth considering is the sequence $a_n = r^n$. The convergence of the sequence depends on the value of $r$.
@@ -169,6 +180,8 @@
 		If $s_n \ra s$ and $s_{n_k}$ is a subsequence, then $s_{n_k} \ra s$.
 	\end{theorem}
 	
+	
+	
 	\subsection{Absolute convergence}
 	
 	\subsection{Bolzano-Weierstrass theorem}
@@ -193,14 +206,17 @@
 	\begin{definition}
 		An infinite series of the form
 		\begin{equation*}
-		\sum_{n = 0}^{\infty} a_n z^n = a_0 + a_1 z + a_2 z^2 + \cdots
+		\sum_{n = 0}^{\infty} a_n(z - z_0)^n = a_0 + a_1 (z - z_0) + a_2 (z - z_0)^2 + \cdots,
 		\end{equation*}
-		composed of multiples of powers of $z$ is called a \textit{power series}. Both the variable $z$ and the coefficients $a_n$ might be real of complex.
+		composed of multiples of powers of $(z - z_0)$, is called a \textit{power series}. Both the variable $z$, the centre $z_0$, and the coefficients $a_n$ might be real of complex.
+		
+		It suffices to consider only when $z_0 = 0$.
 	\end{definition}
 	There are three possibilities with convergence of a power series.
 	\begin{enumerate}
 		\item The series converges for all $z \in \CC$.
-		
+		\item The series converges only within a finite radius of convergence $R$, that is, only for $\abs{z} < R$.
+		\item The series converges only for $z = 0$.
 	\end{enumerate}
 	
 	\section{Integration}
