@@ -32,7 +32,9 @@
 				Every number greater than 1 has a prime factor.
 			\end{theorem}
 			\begin{proof}
-				We proceed by induction. Note that 2 obviously has a prime factor 2. Suppose that every number less than $m$ has a prime factor, we need to show that $m$ also has a prime factor. If $m$ is prime then we are done. If $m$ is not prime then there exists $a, b \in\NN$ with $a \leq m$ such that $ab = m$ and $a \neq 1$. Then by the hypothesis, $a$ has a prime factor. That prime factor must also divide $m$. Thus every number greater than 1 has a prime factor.
+				We proceed by induction. Note that 2 obviously has a prime factor 2. Suppose that every number less than $m$ has a prime factor, we need to show that $m$ also has a prime factor. 
+				
+				If $m$ is prime then we are done. If $m$ is not, then there exists $a, b \in\NN$ with $a \leq m$ such that $ab = m$ and $a \neq 1$. Then by the hypothesis, $a$ has a prime factor. That prime factor must also divide $m$. Thus every number greater than 1 has a prime factor.
 			\end{proof}
 			This proof of infinitude of prime is first described by Euclid.
 			\begin{theorem}
@@ -117,7 +119,7 @@
 			
 			Notice that we are using an idea that the difference between the fast-converging series expansion of $e$ and $\sum_{n = 0}^{b} \frac{1}{n!}$ multiplied by $b!$ is still less than 1, thus making $x$ an integer between 0 and 1. This would give us a contradiction.
 			
-			Let's bound $x$ first by showing that it is indeed positive, since
+			Let's bound the value of $x$ first by showing that it is indeed positive, since
 			\begin{equation}
 			x = b!\left(e - \sum_{n = 0}^{b} \frac{1}{n!}\right) = b!\left(\sum_{n = 0}^{\infty} \frac{1}{n!} - \sum_{n = 0}^{b} \frac{1}{n!}\right) = \sum_{n = b + 1}^{\infty} \frac{b!}{n!},
 			\end{equation}
@@ -133,7 +135,7 @@
 			\end{equation}
 			A contradiction.
 		\end{proof}
-		Later in the 19th century, $e$ is proven to be transcendental, i.e. $e$ is not a root of any polynomial with rational coefficient, by Charles Hermite. Furthermore the result of the Lindemann-Weierstrass theorem indicates that $e^a$ is transcendental if $a$ is rational and non-zero. The same theorem also shows that $\pi$ is transcendental.
+		Later in the 19th century, $e$ is proven to be transcendental, i.e. $e$ is not a root of any polynomial with rational coefficient, by Charles Hermite. Furthermore, the result of the Lindemann-Weierstrass theorem indicates that $e^a$ is transcendental if $a$ is rational and non-zero. The same theorem also shows that $\pi$ is transcendental.
 		
 		\subsection{Decimal expansions}
 			
