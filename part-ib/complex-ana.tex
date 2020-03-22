@@ -33,22 +33,34 @@
 		exists. When the limit does exist it is denoted by $f'(z)$.
 	\end{definition}
 
-	 Let us consider when $f$ is a real function, that is $f(z)$ is real for all value of $z$. Then the quotient
-	 \begin{equation*}
-		 \frac{f(z + h) - f(z)}{h}
-	 \end{equation*}
-	is real if $h$ is real; and if $h = ia$ is purely imaginary, then
-	\begin{equation*}
-	\frac{f(z + ia) - f(z)}{ia}
-	\end{equation*}
-	is imaginary. It follows that $f'(z) = 0$ for all $z$ in the domain. Thus a real function of a complex variable must either has the derivative zero, else the derivative does not exist.
+	 Let us consider when $f$ is a real function, that is $f(z)$ is real for all value of $z$. 
+	\begin{theorem}
+		A real function of a complex variable has the derivative zero, or else does not exists.
+	\end{theorem}
+\begin{proof}
+	Suppose the derivative $f'(z)$ exists.
+	Then the quotient
+		\begin{equation*}
+		\frac{f(z + h) - f(z)}{h}
+		\end{equation*}
+		is real if $h$ is real; and if $h = ia$ is purely imaginary, then
+		\begin{equation*}
+		\frac{f(z + ia) - f(z)}{ia}
+		\end{equation*}
+		is imaginary. It follows that $f'(z) = 0$ for all $z$ in the domain. Thus a real function of a complex variable must either has the derivative zero, else the derivative does not exist.
+\end{proof}
 	
 	\subsection{Conformal mappings}
 	
-	\section{Contour Integration and Cauchy's Theorem}
+	\section{Contour Integration and Cauchy's theorem}
+		\subsection{Maximum modulus theorem}
+	\section{Expansions and singularities}
 		
-	\section{Expansions and Singularities}
+	\section{The residue theorem}
+		\begin{theorem}[Rouch\'{e}'s theorem]
+			Let $f$ and $g$ be holomorphic inside and on a contour $\gamma$ and suppose that $\abs{f(z)} > \abs{g(z)}$ on $\gamma^\ast$. Then $f$ and $f + g$ have the same number of zeros inside $\gamma$.
+		\end{theorem}
+	
+	\subsection{Open mapping theorem}
 		
-	\section{The Residue Theorem}
-				
 \end{document}
