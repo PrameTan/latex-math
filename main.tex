@@ -27,7 +27,7 @@
 
 \usepackage{imakeidx}
 \makeindex[title=Index]
-\usepackage[T1]{fontenc}
+%\usepackage[T1]{fontenc}
 %\XeTeXlinebreaklocale "th"
 %\XeTeXlinebreakskip = 0pt plus 0pt   %
 %\sloppy
@@ -73,7 +73,7 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[chapter]
 \newtheorem{example}{Example}[chapter]
-\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{theorem}{\color{RoyalBlue!70!blue}Theorem}[chapter]
 \newtheorem{lemma}{Lemma}[chapter]
 \newtheorem{corollary}{Corollary}[chapter]
 %\newtheorem{problem}{โจทย์ข้อที่}
@@ -143,8 +143,25 @@
 \usepackage{tikz-cd}
 \tikzcdset{every label/.append style = {font = \small}}
 
-\surroundwithmdframed[backgroundcolor=RoyalBlue!15,hidealllines=true,innertopmargin=1pt,innerbottommargin=10pt,roundcorner=10pt,nobreak=true]{theorem}
+\surroundwithmdframed[backgroundcolor=Cerulean!10,linecolor=RoyalBlue,linewidth=1pt,innertopmargin=1pt,innerbottommargin=10pt,roundcorner=10pt,nobreak=true]{theorem}
 \surroundwithmdframed[backgroundcolor=LimeGreen!20,innertopmargin=1pt,innerbottommargin=10pt,roundcorner=10pt,nobreak=true,hidealllines=true]{definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%TOC
+\usepackage{titletoc}
+\titlecontents*{subsection}% <section>
+[5em]% <left>
+{\small}% <above-code>
+{}% <numbered-entry-format>; you could also use {\thecontentslabel. } to show the numbers
+{}% <numberless-entry-format>
+{}% <filler-page-format>
+[,\ ]% <separator>
+[]% <end>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%Title
+\usepackage{titlesec}
+
+\titleformat{\section}[hang]{\normalfont\Large\bfseries}{\Huge\color{Mulberry}\thesection}{0.4em}{}[]
+\titleformat{\subsection}[hang]{\normalfont\large\bfseries}{\color{Mulberry}\thesubsection}{0.4em}{}[]
 \begin{document}
 
 	\frontmatter
@@ -208,7 +225,9 @@
 		\subfile{part-iii/category}
 		\subfile{part-iii/model_theory}
 		\subfile{part-iii/modular-form}
-		
+		\subfile{part-iii/alg-num}
+		\subfile{part-iii/elliptic}
+		\subfile{part-iii/ana-num}
 	
 	\backmatter
 	\printindex
