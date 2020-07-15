@@ -69,7 +69,7 @@
 			\begin{equation*}
 			s - \epsilon < s_n < s + \epsilon.
 			\end{equation*}
-			This is clear that $s_n$ is bounded.
+			This is clear that $s_n$ is bounded after some index $N$.
 			
 			\item A short notation $s_n \ra s$ stands for $\lim s_n = s$. A further symbolism for the above definition may be given:
 			\begin{equation*}
@@ -180,27 +180,42 @@
 		If $s_n \ra s$ and $s_{n_k}$ is a subsequence, then $s_{n_k} \ra s$.
 	\end{theorem}
 	
-	
-	
-	\subsection{Absolute convergence}
-	
 	\subsection{Bolzano-Weierstrass theorem}
 	\begin{theorem}(Bolzano-Weierstrass theorem)
 		Suppose that $a_n$ is a bounded sequence of real numbers. Then there exists a subsequence $a_{n_k}$ of $a_n$ which converges.
 	\end{theorem}
+
+	\subsection{Absolute convergence}
+	
 	\subsection{Comparison and ratio test}
 	
 	\subsection{Alternating series test}
+	
+	
 	
 	\section{Continuity}
 	\subsection{Continuity of real and complex function}
 	
 	\subsection{The intermediate value theorem}
-	
+	\begin{theorem}[Intermediate value theorem]
+		Suppose $f$ is a continuous function on an interval $I$ with $a, b \in I$ satisfying $a < b$ and $f(a) < v < f(b)$. Then there exists $a < c < b$ such that $f(c) = v$
+	\end{theorem}
+	We shall give two proofs.
+	\begin{proof}
+		This used repeated dissection. Set $a_0 = a$ and $b_0 = b$. Let $d_0 = \frac{(a_0 + b_0)}{2}$. If $f(d_0) \geq v$, set $a_1 = a_0$ and $b_1 = d_0$. Otherwise set $a_1 = d_0,\ b_1 = b_0$ if it is the case that $f(d_0) < v$.	Now we have $b_j - a_j = (b_0 - a_0)/2^j$ and $f(a_j) \leq v \leq f(b_j)$ for each $j\in\NN$.	Continuing this, we have two sequences $a_j$ and $b_j$. The sequence $a_j$ is increasing, $b_j$ is decreasing, and both converge to a same limit $c$. 
+	\end{proof}
+	\begin{theorem}[Boundedness theorem]
+		content...
+	\end{theorem}
+	\begin{theorem}[Extreme value theorem]
+		content...
+	\end{theorem}
+
 	\section{Differentiability}
 	\subsection{Differentiability of functions from $\RR$ to $\RR$}
-	
+	\subsection{Rolle's theorem}
 	\subsection{Derivative of sums and products}
+	\subsection{Taylor's theorem}
 	
 	\section{Power series}
 	\begin{definition}
@@ -218,8 +233,13 @@
 		\item The series converges only within a finite radius of convergence $R$, that is, only for $\abs{z} < R$.
 		\item The series converges only for $z = 0$.
 	\end{enumerate}
+	\subsection{Differentiability of power series}
 	
 	\section{Integration}
-	\subsection{Integrability of monotonic functions}
-	
+	Riemann integral.
+	\subsection{Integrability of functions}
+	monotonic functions are integrable. 
+	piecewise continuous functions are integrable.
+	\subsection{Fundamental theorem of calculus}
+	\subsection{Improper integrals}
 \end{document}
